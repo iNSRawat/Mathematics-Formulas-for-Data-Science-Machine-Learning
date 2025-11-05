@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Formulas for Data Science & Machine Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .nav-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 3px solid #667eea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            scroll-margin-top: 100px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-number {
+            background: #667eea;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .subsection {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .subsection h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .formula-item {
+            background: white;
+            padding: 15px 20px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .formula-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .formula-name {
+            font-weight: bold;
+            color: #667eea;
+            display: inline-block;
+            min-width: 200px;
+            margin-right: 15px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            color: #2c3e50;
+            background: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .note-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .note-box strong {
+            color: #856404;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-size: 1.5em;
+        }
+
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .formula-name {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .nav-btn {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Mathematics for Data Science & Machine Learning</h1>
+            <p>A Complete Reference Guide</p>
+        </header>
+
+        <div class="nav-container">
+            <div class="nav">
+                <button class="nav-btn" onclick="scrollToSection('linear-algebra')">Linear Algebra</button>
+                <button class="nav-btn" onclick="scrollToSection('calculus')">Calculus</button>
+                <button class="nav-btn" onclick="scrollToSection('probability')">Probability</button>
+                <button class="nav-btn" onclick="scrollToSection('statistics')">Statistics</button>
+                <button class="nav-btn" onclick="scrollToSection('regression')">Regression</button>
+                <button class="nav-btn" onclick="scrollToSection('neural-networks')">Neural Networks</button>
+                <button class="nav-btn" onclick="scrollToSection('optimization')">Optimization</button>
+                <button class="nav-btn" onclick="scrollToSection('metrics')">Metrics</button>
+                <button class="nav-btn" onclick="scrollToSection('clustering')">Clustering</button>
+                <button class="nav-btn" onclick="scrollToSection('deep-learning')">Deep Learning</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Content sections will be displayed here -->
+            <section id="linear-algebra" class="section">
+                <h2 class="section-title"><span class="section-number">1</span> Linear Algebra</h2>
+                <div class="subsection">
+                    <h3>Vector Operations</h3>
+                    <div class="formula-item"><span class="formula-name">Dot Product:</span> <span class="formula">a · b = Σ(aᵢbᵢ)</span></div>
+                    <div class="formula-item"><span class="formula-name">Matrix Multiplication:</span> <span class="formula">C = AB where Cᵢⱼ = Σₖ(AᵢₖBₖⱼ)</span></div>
+                </div>
+            </section>
+
+            <section id="calculus" class="section">
+                <h2 class="section-title"><span class="section-number">2</span> Calculus</h2>
+                <div class="subsection">
+                    <h3>Basic Derivatives</h3>
+                    <div class="formula-item"><span class="formula-name">Power Rule:</span> <span class="formula">d/dx(xⁿ) = nxⁿ⁻¹</span></div>
+                </div>
+            </section>
+
+            <section id="probability" class="section">
+                <h2 class="section-title"><span class="section-number">3</span> Probability</h2>
+                <div class="subsection">
+                    <h3>Basic Probability Rules</h3>
+                    <div class="formula-item"><span class="formula-name">Bayes' Rule:</span> <span class="formula">P(A|B) = [P(B|A)P(A)]/P(B)</span></div>
+                </div>
+            </section>
+
+            <section id="statistics" class="section">
+                <h2 class="section-title"><span class="section-number">4</span> Statistics</h2>
+                <div class="subsection">
+                    <h3>Descriptive Statistics</h3>
+                    <div class="formula-item"><span class="formula-name">Mean:</span> <span class="formula">μ = (1/n)Σxᵢ</span></div>
+                </div>
+            </section>
+
+            <section id="regression" class="section">
+                <h2 class="section-title"><span class="section-number">5</span> Regression</h2>
+                <div class="subsection">
+                    <h3>Linear Regression</h3>
+                    <div class="formula-item"><span class="formula-name">MSE:</span> <span class="formula">(1/n)Σ(yᵢ - ŷᵢ)²</span></div>
+                </div>
+            </section>
+
+            <section id="neural-networks" class="section">
+                <h2 class="section-title"><span class="section-number">6</span> Neural Networks</h2>
+                <div class="subsection">
+                    <h3>Activation Functions</h3>
+                    <div class="formula-item"><span class="formula-name">ReLU:</span> <span class="formula">max(0, x)</span></div>
+                </div>
+            </section>
+
+            <section id="optimization" class="section">
+                <h2 class="section-title"><span class="section-number">7</span> Optimization</h2>
+                <div class="subsection">
+                    <h3>Gradient Descent</h3>
+                    <div class="formula-item"><span class="formula-name">Update Rule:</span> <span class="formula">θ := θ - α∇J(θ)</span></div>
+                </div>
+            </section>
+
+            <section id="metrics" class="section">
+                <h2 class="section-title"><span class="section-number">8</span> Evaluation Metrics</h2>
+                <div class="subsection">
+                    <h3>Classification Metrics</h3>
+                    <div class="formula-item"><span class="formula-name">Accuracy:</span> <span class="formula">(TP + TN)/(TP + TN + FP + FN)</span></div>
+                </div>
+            </section>
+
+            <section id="clustering" class="section">
+                <h2 class="section-title"><span class="section-number">9</span> Clustering</h2>
+                <div class="subsection">
+                    <h3>K-Means</h3>
+                    <div class="formula-item"><span class="formula-name">Distance:</span> <span class="formula">||x - μₖ||²</span></div>
+                </div>
+            </section>
+
+            <section id="deep-learning" class="section">
+                <h2 class="section-title"><span class="section-number">10</span> Deep Learning</h2>
+                <div class="subsection">
+                    <h3>Backpropagation</h3>
+                    <div class="formula-item"><span class="formula-name">Weight Gradient:</span> <span class="formula">∂L/∂W = δ(a)ᵀ</span></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+        <footer>
+            <p>Created for Data Science & Machine Learning Students</p>
+            <p><a href="https://github.com/iNSRawat/Mathematics-Formulas-for-Data-Science-Machine-Learning">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
