@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Formulas for Data Science & Machine Learning</title>
+    <title>Mathematics for Data Science & Machine Learning</title>
+    
+    <!-- MathJax for Beautiful Math Rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    
     <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,262 +27,488 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: float 20s infinite linear;
         }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        @keyframes float {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
         }
 
-        header p {
-            font-size: 1.2em;
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
             opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
-        .nav-container {
-            background: #f8f9fa;
-            padding: 20px;
-            border-bottom: 3px solid #667eea;
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: -40px auto 0;
+            background: white;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -10px 60px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
             position: sticky;
             top: 0;
+            background: white;
             z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 20px 20px 0 0;
         }
 
         .nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
             justify-content: center;
+            gap: 10px;
+            padding: 25px 20px;
+            border-bottom: 3px solid var(--primary);
         }
 
         .nav-btn {
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 8px 16px;
-            border-radius: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
+            font-size: 0.95em;
             font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .nav-btn:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
         }
 
+        .nav-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Content */
         .content {
-            padding: 40px 30px;
+            padding: 60px 40px;
         }
 
         .section {
-            margin-bottom: 50px;
-            scroll-margin-top: 100px;
+            margin-bottom: 80px;
+            scroll-margin-top: 120px;
+            animation: fadeIn 0.6s ease-in;
         }
 
-        .section-title {
-            font-size: 2em;
-            color: #667eea;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
         }
 
         .section-number {
-            background: #667eea;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            width: 45px;
-            height: 45px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.5em;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: var(--dark);
+            font-weight: 700;
+            flex: 1;
         }
 
         .subsection {
-            margin-bottom: 30px;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 35px;
+            margin-bottom: 35px;
+            border-radius: 15px;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .subsection h3 {
-            color: #764ba2;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
-
-        .formula-item {
-            background: white;
-            padding: 15px 20px;
-            margin: 12px 0;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease;
-        }
-
-        .formula-item:hover {
+        .subsection:hover {
             transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .subsection-title {
+            font-size: 1.8em;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .formula-card {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border-left: 5px solid var(--info);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .formula-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-left-width: 8px;
         }
 
         .formula-name {
-            font-weight: bold;
-            color: #667eea;
-            display: inline-block;
-            min-width: 200px;
-            margin-right: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 12px;
         }
 
         .formula {
-            font-family: 'Courier New', monospace;
-            color: #2c3e50;
-            background: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        .note-box {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .note-box strong {
-            color: #856404;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        th, td {
+            font-size: 1.2em;
+            color: var(--dark);
             padding: 15px;
-            text-align: center;
-            border: 1px solid #ddd;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow-x: auto;
         }
 
-        th {
-            background: #667eea;
+        /* MathJax styling */
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid var(--info);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(23, 162, 184, 0.2);
+        }
+
+        .info-box strong {
+            color: var(--info);
+            font-size: 1.1em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            border-left: 5px solid var(--warning);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.2);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid var(--success);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.2);
+        }
+
+        /* Tables */
+        .formula-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .formula-table th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            font-weight: bold;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
         }
 
-        tr:nth-child(even) {
+        .formula-table td {
+            padding: 18px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .formula-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .formula-table tr:hover {
             background: #f8f9fa;
         }
 
+        .formula-table td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 200px;
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            line-height: 1.8;
+        }
+
+        .code-block .comment {
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a252f 100%);
+            color: white;
+            padding: 60px 40px 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #667eea;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
             transition: all 0.3s ease;
-            font-size: 1.5em;
+            font-size: 1.8em;
+            z-index: 1000;
         }
 
         .back-to-top:hover {
-            background: #764ba2;
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.7);
         }
 
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px;
+        .back-to-top.visible {
+            display: flex;
         }
 
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
             }
 
             .section-title {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
 
-            .formula-name {
-                display: block;
-                margin-bottom: 10px;
+            .content {
+                padding: 40px 20px;
             }
 
             .nav-btn {
-                font-size: 0.8em;
-                padding: 6px 12px;
+                font-size: 0.85em;
+                padding: 10px 18px;
             }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-box {
+                padding: 15px 20px;
+            }
+
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+            color: var(--primary);
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>📊 Mathematics for Data Science & Machine Learning</h1>
-            <p>A Complete Reference Guide</p>
-        </header>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>📊 Mathematics for Data Science & ML</h1>
+        <p>A Complete Mathematical Reference Guide</p>
+        <div class="hero-stats">
+            <div class="stat-box">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Topics</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Formulas</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Applications</span>
+            </div>
+        </div>
+    </div>
 
-        <div class="nav-container">
-            <div class="nav">
+    <div class="container">
+        <!-- Navigation -->
+        <div class="nav-wrapper">
+            <nav class="nav">
                 <button class="nav-btn" onclick="scrollToSection('linear-algebra')">Linear Algebra</button>
                 <button class="nav-btn" onclick="scrollToSection('calculus')">Calculus</button>
                 <button class="nav-btn" onclick="scrollToSection('probability')">Probability</button>
@@ -278,105 +519,949 @@
                 <button class="nav-btn" onclick="scrollToSection('metrics')">Metrics</button>
                 <button class="nav-btn" onclick="scrollToSection('clustering')">Clustering</button>
                 <button class="nav-btn" onclick="scrollToSection('deep-learning')">Deep Learning</button>
-            </div>
+            </nav>
         </div>
 
+        <!-- Main Content -->
         <div class="content">
-            <!-- Content sections will be displayed here -->
+            <!-- LINEAR ALGEBRA -->
             <section id="linear-algebra" class="section">
-                <h2 class="section-title"><span class="section-number">1</span> Linear Algebra</h2>
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">Linear Algebra</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Vector Operations</h3>
-                    <div class="formula-item"><span class="formula-name">Dot Product:</span> <span class="formula">a · b = Σ(aᵢbᵢ)</span></div>
-                    <div class="formula-item"><span class="formula-name">Matrix Multiplication:</span> <span class="formula">C = AB where Cᵢⱼ = Σₖ(AᵢₖBₖⱼ)</span></div>
+                    <h3 class="subsection-title">🔢 Vectors and Matrices</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Dot Product:</span>
+                        <div class="formula">
+                            \[\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^{n} a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Matrix Multiplication:</span>
+                        <div class="formula">
+                            \[\mathbf{C} = \mathbf{AB} \text{ where } C_{ij} = \sum_{k} A_{ik}B_{kj}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Transpose:</span>
+                        <div class="formula">
+                            \[(\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Identity Matrix:</span>
+                        <div class="formula">
+                            \[\mathbf{AI} = \mathbf{IA} = \mathbf{A}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Inverse Matrix:</span>
+                        <div class="formula">
+                            \[\mathbf{AA}^{-1} = \mathbf{A}^{-1}\mathbf{A} = \mathbf{I}\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📏 Norms</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Norm Type</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>L1 Norm (Manhattan)</td>
+                            <td>\(\|\mathbf{x}\|_1 = \sum_{i} |x_i|\)</td>
+                        </tr>
+                        <tr>
+                            <td>L2 Norm (Euclidean)</td>
+                            <td>\(\|\mathbf{x}\|_2 = \sqrt{\sum_{i} x_i^2}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Frobenius Norm</td>
+                            <td>\(\|\mathbf{A}\|_F = \sqrt{\sum_{i}\sum_{j} a_{ij}^2}\)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🎯 Eigenvalues and Eigenvectors</h3>
+                    
+                    <div class="code-block">
+Eigenvalue Equation:     \(\mathbf{Av} = \lambda\mathbf{v}\)
+Characteristic Equation: \(\det(\mathbf{A} - \lambda\mathbf{I}) = 0\)
+Trace:                   \(\text{tr}(\mathbf{A}) = \sum \lambda_i = \sum a_{ii}\)
+Determinant:             \(\det(\mathbf{A}) = \prod \lambda_i\)
+                    </div>
                 </div>
             </section>
 
+            <!-- CALCULUS -->
             <section id="calculus" class="section">
-                <h2 class="section-title"><span class="section-number">2</span> Calculus</h2>
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">Calculus</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Basic Derivatives</h3>
-                    <div class="formula-item"><span class="formula-name">Power Rule:</span> <span class="formula">d/dx(xⁿ) = nxⁿ⁻¹</span></div>
+                    <h3 class="subsection-title">📐 Basic Derivatives</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Rule</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Power Rule</td>
+                            <td>\(\frac{d}{dx}(x^n) = nx^{n-1}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Chain Rule</td>
+                            <td>\(\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)\)</td>
+                        </tr>
+                        <tr>
+                            <td>Product Rule</td>
+                            <td>\(\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)\)</td>
+                        </tr>
+                        <tr>
+                            <td>Quotient Rule</td>
+                            <td>\(\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}\)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">∇ Partial Derivatives</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Gradient:</span>
+                        <div class="formula">
+                            \[\nabla f = \left[\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n}\right]\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Hessian Matrix:</span>
+                        <div class="formula">
+                            \[H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Jacobian Matrix:</span>
+                        <div class="formula">
+                            \[J_{ij} = \frac{\partial f_i}{\partial x_j}\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🧮 Activation Function Derivatives</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Function</th>
+                            <th>Derivative</th>
+                        </tr>
+                        <tr>
+                            <td>Sigmoid</td>
+                            <td>\(\sigma'(x) = \sigma(x)(1 - \sigma(x))\)</td>
+                        </tr>
+                        <tr>
+                            <td>Tanh</td>
+                            <td>\(\tanh'(x) = 1 - \tanh^2(x)\)</td>
+                        </tr>
+                        <tr>
+                            <td>ReLU</td>
+                            <td>\(\text{ReLU}'(x) = \begin{cases}1 & \text{if } x > 0\\0 & \text{otherwise}\end{cases}\)</td>
+                        </tr>
+                    </table>
                 </div>
             </section>
 
+            <!-- PROBABILITY -->
             <section id="probability" class="section">
-                <h2 class="section-title"><span class="section-number">3</span> Probability</h2>
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">Probability</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Basic Probability Rules</h3>
-                    <div class="formula-item"><span class="formula-name">Bayes' Rule:</span> <span class="formula">P(A|B) = [P(B|A)P(A)]/P(B)</span></div>
+                    <h3 class="subsection-title">🎲 Basic Probability Rules</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Probability:</span>
+                        <div class="formula">
+                            \[P(A) = \frac{\text{Favorable outcomes}}{\text{Total outcomes}}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Complement Rule:</span>
+                        <div class="formula">
+                            \[P(A^c) = 1 - P(A)\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Addition Rule:</span>
+                        <div class="formula">
+                            \[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Conditional Probability:</span>
+                        <div class="formula">
+                            \[P(A|B) = \frac{P(A \cap B)}{P(B)}\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🔮 Bayes' Theorem</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Bayes' Rule:</span>
+                        <div class="formula">
+                            \[P(A|B) = \frac{P(B|A)P(A)}{P(B)}\]
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>💡 Key Application:</strong> Fundamental in ML for classification, spam detection, and probabilistic reasoning.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📊 Expected Value & Variance</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Concept</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Expected Value</td>
+                            <td>\(E[X] = \sum x_i P(x_i)\) or \(\int xf(x)dx\)</td>
+                        </tr>
+                        <tr>
+                            <td>Variance</td>
+                            <td>\(\text{Var}(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2\)</td>
+                        </tr>
+                        <tr>
+                            <td>Standard Deviation</td>
+                            <td>\(\sigma = \sqrt{\text{Var}(X)}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Covariance</td>
+                            <td>\(\text{Cov}(X,Y) = E[(X - \mu_x)(Y - \mu_y)]\)</td>
+                        </tr>
+                        <tr>
+                            <td>Correlation</td>
+                            <td>\(\rho(X,Y) = \frac{\text{Cov}(X,Y)}{\sigma_x \sigma_y}\)</td>
+                        </tr>
+                    </table>
                 </div>
             </section>
 
+            <!-- STATISTICS -->
             <section id="statistics" class="section">
-                <h2 class="section-title"><span class="section-number">4</span> Statistics</h2>
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">Statistics</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Descriptive Statistics</h3>
-                    <div class="formula-item"><span class="formula-name">Mean:</span> <span class="formula">μ = (1/n)Σxᵢ</span></div>
+                    <h3 class="subsection-title">📈 Descriptive Statistics</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Mean:</span>
+                        <div class="formula">
+                            \[\mu = \frac{1}{n}\sum_{i=1}^{n} x_i\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Sample Variance:</span>
+                        <div class="formula">
+                            \[s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Population Variance:</span>
+                        <div class="formula">
+                            \[\sigma^2 = \frac{1}{n}\sum_{i=1}^{n}(x_i - \mu)^2\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🎯 Hypothesis Testing</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Z-score:</span>
+                        <div class="formula">
+                            \[z = \frac{x - \mu}{\sigma}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">T-statistic:</span>
+                        <div class="formula">
+                            \[t = \frac{\bar{x} - \mu}{s/\sqrt{n}}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Confidence Interval:</span>
+                        <div class="formula">
+                            \[CI = \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\]
+                        </div>
+                    </div>
                 </div>
             </section>
 
+            <!-- REGRESSION -->
             <section id="regression" class="section">
-                <h2 class="section-title"><span class="section-number">5</span> Regression</h2>
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">Linear & Logistic Regression</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Linear Regression</h3>
-                    <div class="formula-item"><span class="formula-name">MSE:</span> <span class="formula">(1/n)Σ(yᵢ - ŷᵢ)²</span></div>
+                    <h3 class="subsection-title">📉 Linear Regression</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Simple Model:</span>
+                        <div class="formula">
+                            \[y = \beta_0 + \beta_1 x + \varepsilon\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Matrix Form:</span>
+                        <div class="formula">
+                            \[\mathbf{y} = \mathbf{X\beta} + \boldsymbol{\varepsilon}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Normal Equation:</span>
+                        <div class="formula">
+                            \[\boldsymbol{\beta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Mean Squared Error:</span>
+                        <div class="formula">
+                            \[MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">R-squared:</span>
+                        <div class="formula">
+                            \[R^2 = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🔄 Logistic Regression</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Sigmoid Function:</span>
+                        <div class="formula">
+                            \[\sigma(z) = \frac{1}{1 + e^{-z}}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Log Loss (Binary Cross-Entropy):</span>
+                        <div class="formula">
+                            \[L = -\frac{1}{n}\sum_{i=1}^{n}[y_i\log(\hat{y}_i) + (1-y_i)\log(1-\hat{y}_i)]\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🛡️ Regularization</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Cost Function</th>
+                        </tr>
+                        <tr>
+                            <td>Ridge (L2)</td>
+                            <td>\(J(\beta) = \sum(y_i - \hat{y}_i)^2 + \lambda\sum\beta_j^2\)</td>
+                        </tr>
+                        <tr>
+                            <td>Lasso (L1)</td>
+                            <td>\(J(\beta) = \sum(y_i - \hat{y}_i)^2 + \lambda\sum|\beta_j|\)</td>
+                        </tr>
+                        <tr>
+                            <td>Elastic Net</td>
+                            <td>\(J(\beta) = \sum(y_i - \hat{y}_i)^2 + \lambda_1\sum|\beta_j| + \lambda_2\sum\beta_j^2\)</td>
+                        </tr>
+                    </table>
                 </div>
             </section>
 
+            <!-- NEURAL NETWORKS -->
             <section id="neural-networks" class="section">
-                <h2 class="section-title"><span class="section-number">6</span> Neural Networks</h2>
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">Neural Networks</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Activation Functions</h3>
-                    <div class="formula-item"><span class="formula-name">ReLU:</span> <span class="formula">max(0, x)</span></div>
+                    <h3 class="subsection-title">⚡ Activation Functions</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Function</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Sigmoid</td>
+                            <td>\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Tanh</td>
+                            <td>\(\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}\)</td>
+                        </tr>
+                        <tr>
+                            <td>ReLU</td>
+                            <td>\(\text{ReLU}(x) = \max(0, x)\)</td>
+                        </tr>
+                        <tr>
+                            <td>Leaky ReLU</td>
+                            <td>\(f(x) = \begin{cases}x & \text{if } x > 0\\\alpha x & \text{otherwise}\end{cases}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Softmax</td>
+                            <td>\(\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}\)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🔄 Forward & Backward Propagation</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Forward - Linear Combination:</span>
+                        <div class="formula">
+                            \[z^{(l)} = W^{(l)}a^{(l-1)} + b^{(l)}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Forward - Activation:</span>
+                        <div class="formula">
+                            \[a^{(l)} = g(z^{(l)})\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Backprop - Output Error:</span>
+                        <div class="formula">
+                            \[\delta^{(L)} = (a^{(L)} - y) \odot g'(z^{(L)})\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Backprop - Hidden Error:</span>
+                        <div class="formula">
+                            \[\delta^{(l)} = [(W^{(l+1)})^T\delta^{(l+1)}] \odot g'(z^{(l)})\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Weight Gradient:</span>
+                        <div class="formula">
+                            \[\frac{\partial L}{\partial W^{(l)}} = \delta^{(l)}(a^{(l-1)})^T\]
+                        </div>
+                    </div>
                 </div>
             </section>
 
+            <!-- OPTIMIZATION -->
             <section id="optimization" class="section">
-                <h2 class="section-title"><span class="section-number">7</span> Optimization</h2>
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2 class="section-title">Optimization Algorithms</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Gradient Descent</h3>
-                    <div class="formula-item"><span class="formula-name">Update Rule:</span> <span class="formula">θ := θ - α∇J(θ)</span></div>
+                    <h3 class="subsection-title">⬇️ Gradient Descent</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Update Rule:</span>
+                        <div class="formula">
+                            \[\theta := \theta - \alpha\nabla J(\theta)\]
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Note:</strong> \(\alpha\) is the learning rate, controlling step size
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🚀 Advanced Optimizers</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Momentum:</span>
+                        <div class="formula">
+                            \[v := \beta v + (1-\beta)\nabla J(\theta)\]
+                            \[\theta := \theta - \alpha v\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">RMSprop:</span>
+                        <div class="formula">
+                            \[s := \beta s + (1-\beta)(\nabla J)^2\]
+                            \[\theta := \theta - \alpha\frac{\nabla J}{\sqrt{s + \epsilon}}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Adam:</span>
+                        <div class="formula">
+                            \[m := \beta_1 m + (1-\beta_1)\nabla J\]
+                            \[v := \beta_2 v + (1-\beta_2)(\nabla J)^2\]
+                            \[\theta := \theta - \alpha\frac{\hat{m}}{\sqrt{\hat{v}} + \epsilon}\]
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <strong>💡 Pro Tip:</strong> Adam is often the go-to optimizer for deep learning due to its adaptive learning rates and momentum.
+                    </div>
                 </div>
             </section>
 
+            <!-- METRICS -->
             <section id="metrics" class="section">
-                <h2 class="section-title"><span class="section-number">8</span> Evaluation Metrics</h2>
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2 class="section-title">Evaluation Metrics</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Classification Metrics</h3>
-                    <div class="formula-item"><span class="formula-name">Accuracy:</span> <span class="formula">(TP + TN)/(TP + TN + FP + FN)</span></div>
+                    <h3 class="subsection-title">✅ Classification Metrics</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Metric</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Accuracy</td>
+                            <td>\(\frac{TP + TN}{TP + TN + FP + FN}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Precision</td>
+                            <td>\(\frac{TP}{TP + FP}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Recall</td>
+                            <td>\(\frac{TP}{TP + FN}\)</td>
+                        </tr>
+                        <tr>
+                            <td>F1-Score</td>
+                            <td>\(\frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}\)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📉 Confusion Matrix</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th colspan="2" rowspan="2">Confusion Matrix</th>
+                            <th colspan="2">Predicted</th>
+                        </tr>
+                        <tr>
+                            <th>Positive</th>
+                            <th>Negative</th>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">Actual</th>
+                            <th>Positive</th>
+                            <td style="background: #d4edda;">True Positive (TP)</td>
+                            <td style="background: #f8d7da;">False Negative (FN)</td>
+                        </tr>
+                        <tr>
+                            <th>Negative</th>
+                            <td style="background: #f8d7da;">False Positive (FP)</td>
+                            <td style="background: #d4edda;">True Negative (TN)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📈 ROC & AUC</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">True Positive Rate (TPR):</span>
+                        <div class="formula">
+                            \[TPR = \frac{TP}{TP + FN}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">False Positive Rate (FPR):</span>
+                        <div class="formula">
+                            \[FPR = \frac{FP}{FP + TN}\]
+                        </div>
+                    </div>
                 </div>
             </section>
 
+            <!-- CLUSTERING -->
             <section id="clustering" class="section">
-                <h2 class="section-title"><span class="section-number">9</span> Clustering</h2>
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2 class="section-title">Clustering Algorithms</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>K-Means</h3>
-                    <div class="formula-item"><span class="formula-name">Distance:</span> <span class="formula">||x - μₖ||²</span></div>
+                    <h3 class="subsection-title">🎯 K-Means</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Objective Function:</span>
+                        <div class="formula">
+                            \[\text{minimize } \sum_{j=1}^{k} \sum_{x \in C_j} \|x - \mu_j\|^2\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Centroid Update:</span>
+                        <div class="formula">
+                            \[\mu_j = \frac{1}{|C_j|}\sum_{x \in C_j} x\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📏 Distance Metrics</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Metric</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Euclidean</td>
+                            <td>\(d(x, y) = \sqrt{\sum_i(x_i - y_i)^2}\)</td>
+                        </tr>
+                        <tr>
+                            <td>Manhattan</td>
+                            <td>\(d(x, y) = \sum_i|x_i - y_i|\)</td>
+                        </tr>
+                        <tr>
+                            <td>Cosine Similarity</td>
+                            <td>\(\cos(\theta) = \frac{x \cdot y}{\|x\|\|y\|}\)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📊 Silhouette Score</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Silhouette Coefficient:</span>
+                        <div class="formula">
+                            \[s(i) = \frac{b(i) - a(i)}{\max\{a(i), b(i)\}}\]
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Where:</strong> \(a(i)\) = mean distance to same cluster, \(b(i)\) = mean distance to nearest cluster
+                    </div>
                 </div>
             </section>
 
+            <!-- DEEP LEARNING -->
             <section id="deep-learning" class="section">
-                <h2 class="section-title"><span class="section-number">10</span> Deep Learning</h2>
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">Deep Learning Specifics</h2>
+                </div>
+
                 <div class="subsection">
-                    <h3>Backpropagation</h3>
-                    <div class="formula-item"><span class="formula-name">Weight Gradient:</span> <span class="formula">∂L/∂W = δ(a)ᵀ</span></div>
+                    <h3 class="subsection-title">🔄 Batch Normalization</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Normalize:</span>
+                        <div class="formula">
+                            \[\hat{x} = \frac{x - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Scale and Shift:</span>
+                        <div class="formula">
+                            \[y = \gamma\hat{x} + \beta\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🧠 Convolutional Neural Networks</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Output Size:</span>
+                        <div class="formula">
+                            \[O = \left\lfloor\frac{W - K + 2P}{S}\right\rfloor + 1\]
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Parameters:</strong> W = input size, K = kernel size, P = padding, S = stride
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🔁 LSTM Networks</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Forget Gate:</span>
+                        <div class="formula">
+                            \[f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Input Gate:</span>
+                        <div class="formula">
+                            \[i_t = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i)\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Output Gate:</span>
+                        <div class="formula">
+                            \[o_t = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o)\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Cell State:</span>
+                        <div class="formula">
+                            \[C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">💧 Dropout</h3>
+                    
+                    <div class="code-block">
+<span class="comment">// Training phase</span>
+output = mask ⊙ activation / (1 - p)
+
+<span class="comment">// Testing phase</span>
+output = activation  <span class="comment">// No dropout applied</span>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Important:</strong> Dropout is only applied during training, not during inference/testing.
+                    </div>
                 </div>
             </section>
+
+            <!-- BONUS SECTION -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">+</div>
+                    <h2 class="section-title">Bonus: Additional Topics</h2>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📊 PCA (Principal Component Analysis)</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Covariance Matrix:</span>
+                        <div class="formula">
+                            \[\Sigma = \frac{1}{n}\mathbf{X}^T\mathbf{X}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Explained Variance Ratio:</span>
+                        <div class="formula">
+                            \[\text{EVR} = \frac{\lambda_i}{\sum_j \lambda_j}\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🎯 Support Vector Machines</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Linear SVM Decision Function:</span>
+                        <div class="formula">
+                            \[f(x) = w^Tx + b\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">Margin:</span>
+                        <div class="formula">
+                            \[\text{margin} = \frac{2}{\|w\|}\]
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <span class="formula-name">RBF Kernel:</span>
+                        <div class="formula">
+                            \[K(x, x') = \exp(-\gamma\|x - x'\|^2)\]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">⚖️ Bias-Variance Tradeoff</h3>
+                    
+                    <div class="formula-card">
+                        <span class="formula-name">Total Error Decomposition:</span>
+                        <div class="formula">
+                            \[E[(y - \hat{y})^2] = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}\]
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <strong>💡 Key Insight:</strong> High bias = underfitting, High variance = overfitting. The goal is finding the sweet spot!
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">📡 Information Theory</h3>
+                    
+                    <table class="formula-table">
+                        <tr>
+                            <th>Measure</th>
+                            <th>Formula</th>
+                        </tr>
+                        <tr>
+                            <td>Entropy</td>
+                            <td>\(H(X) = -\sum P(x_i)\log_2 P(x_i)\)</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Entropy</td>
+                            <td>\(H(p,q) = -\sum p(x)\log q(x)\)</td>
+                        </tr>
+                        <tr>
+                            <td>KL Divergence</td>
+                            <td>\(D_{KL}(P\|Q) = \sum P(x)\log\frac{P(x)}{Q(x)}\)</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
         </div>
 
-        <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
-
+        <!-- Footer -->
         <footer>
-            <p>Created for Data Science & Machine Learning Students</p>
-            <p><a href="https://github.com/iNSRawat/Mathematics-Formulas-for-Data-Science-Machine-Learning">View on GitHub</a></p>
+            <div class="footer-content">
+                <h3>📚 Mathematics for Data Science & Machine Learning</h3>
+                <p style="margin: 20px 0;">A comprehensive reference guide for ML practitioners and students</p>
+                
+                <div class="footer-links">
+                    <a href="https://github.com" class="footer-link">GitHub</a>
+                    <a href="https://scikit-learn.org/" class="footer-link">Scikit-learn</a>
+                    <a href="https://www.tensorflow.org/" class="footer-link">TensorFlow</a>
+                    <a href="https://pytorch.org/" class="footer-link">PyTorch</a>
+                    <a href="https://mml-book.github.io/" class="footer-link">MML Book</a>
+                </div>
+
+                <p style="margin-top: 40px; opacity: 0.8;">
+                    Created with ❤️ for the Machine Learning community<br>
+                    Powered by MathJax for beautiful mathematical typesetting
+                </p>
+
+                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                    © 2024 | Open Source | Free to Use and Share
+                </p>
+            </div>
         </footer>
     </div>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
     <script>
+        // Smooth scroll to section
         function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ 
+                top: 0, 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Console message
+        console.log('%c📊 Mathematics for Data Science & ML', 'color: #667eea; font-size: 20px; font-weight: bold;');
+        console.log('%cBuilt with MathJax for beautiful math rendering', 'color: #764ba2; font-size: 14px;');
     </script>
 </body>
 </html>
