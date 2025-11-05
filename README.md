@@ -1,122 +1,575 @@
-# Mathematics-Formulas-for-Data-Science-Machine-Learning
-A comprehensive collection of mathematics formulas essential for data science and machine learning
+# 📊 Mathematics for Data Science & Machine Learning
 
-## Table of Contents
-1. [Linear Algebra](#linear-algebra)
-2. [Calculus](#calculus)
-3. [Probability & Statistics](#probability--statistics)
-4. [Optimization](#optimization)
-5. [Machine Learning Algorithms](#machine-learning-algorithms)
+> A comprehensive reference guide covering all essential mathematical formulas used in Data Science and Machine Learning
 
-## Linear Algebra
-
-### Vector Operations
-- **Dot Product**: $\vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i b_i$
-- **Vector Norm (L2)**: $||\vec{x}||_2 = \sqrt{\sum_{i=1}^{n} x_i^2}$
-- **Vector Norm (L1)**: $||\vec{x}||_1 = \sum_{i=1}^{n} |x_i|$
-
-### Matrix Operations
-- **Matrix Multiplication**: $(AB)_{ij} = \sum_{k=1}^{n} A_{ik}B_{kj}$
-- **Matrix Transpose**: $(A^T)_{ij} = A_{ji}$
-- **Matrix Inverse**: $AA^{-1} = A^{-1}A = I$
-- **Determinant (2x2)**: $det(A) = ad - bc$ for $A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$
-
-### Eigenvalues and Eigenvectors
-- **Eigenvalue Equation**: $A\vec{v} = \lambda\vec{v}$
-- **Characteristic Equation**: $det(A - \lambda I) = 0$
-
-## Calculus
-
-### Derivatives
-- **Power Rule**: $\frac{d}{dx}x^n = nx^{n-1}$
-- **Chain Rule**: $\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$
-- **Product Rule**: $\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$
-
-### Partial Derivatives
-- **Gradient**: $\nabla f = \left[\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, ..., \frac{\partial f}{\partial x_n}\right]$
-- **Hessian Matrix**: $H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}$
-
-### Integration
-- **Definite Integral**: $\int_{a}^{b} f(x)dx$
-- **Integration by Parts**: $\int u dv = uv - \int v du$
-
-## Probability & Statistics
-
-### Probability Basics
-- **Probability**: $P(A) = \frac{\text{Number of favorable outcomes}}{\text{Total number of outcomes}}$
-- **Conditional Probability**: $P(A|B) = \frac{P(A \cap B)}{P(B)}$
-- **Bayes' Theorem**: $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$
-
-### Distributions
-- **Normal Distribution**: $f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
-- **Bernoulli Distribution**: $P(X=x) = p^x(1-p)^{1-x}$
-- **Binomial Distribution**: $P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}$
-
-### Statistical Measures
-- **Mean**: $\mu = \frac{1}{n}\sum_{i=1}^{n} x_i$
-- **Variance**: $\sigma^2 = \frac{1}{n}\sum_{i=1}^{n}(x_i - \mu)^2$
-- **Standard Deviation**: $\sigma = \sqrt{\sigma^2}$
-- **Covariance**: $Cov(X,Y) = E[(X-E[X])(Y-E[Y])]$
-- **Correlation**: $\rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_X\sigma_Y}$
-
-## Optimization
-
-### Gradient Descent
-- **Update Rule**: $\theta_{new} = \theta_{old} - \alpha\nabla J(\theta)$
-- **Learning Rate**: $\alpha$ (controls step size)
-
-### Stochastic Gradient Descent
-- **Update Rule**: $\theta = \theta - \alpha\nabla J(\theta; x^{(i)}, y^{(i)})$
-
-### Loss Functions
-- **Mean Squared Error (MSE)**: $MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$
-- **Cross-Entropy Loss**: $L = -\sum_{i=1}^{n}y_i\log(\hat{y}_i)$
-
-## Machine Learning Algorithms
-
-### Linear Regression
-- **Hypothesis**: $h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 + ... + \theta_nx_n = \theta^Tx$
-- **Cost Function**: $J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^2$
-- **Normal Equation**: $\theta = (X^TX)^{-1}X^Ty$
-
-### Logistic Regression
-- **Sigmoid Function**: $\sigma(z) = \frac{1}{1+e^{-z}}$
-- **Hypothesis**: $h_\theta(x) = \sigma(\theta^Tx)$
-- **Cost Function**: $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(1-h_\theta(x^{(i)}))]$
-
-### Neural Networks
-- **Activation Functions**:
-  - **ReLU**: $f(x) = max(0, x)$
-  - **Tanh**: $f(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
-  - **Softmax**: $\sigma(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K}e^{z_j}}$
-
-### Support Vector Machines
-- **Decision Function**: $f(x) = sign(w^Tx + b)$
-- **Objective**: Maximize margin $\frac{2}{||w||}$
-
-### K-Means Clustering
-- **Distance Metric**: $d(x, \mu_k) = ||x - \mu_k||^2$
-- **Centroid Update**: $\mu_k = \frac{1}{|C_k|}\sum_{x \in C_k}x$
-
-### Principal Component Analysis (PCA)
-- **Covariance Matrix**: $C = \frac{1}{n}X^TX$
-- **Principal Components**: Eigenvectors of C
-
-### Regularization
-- **L1 Regularization (Lasso)**: $J(\theta) = MSE + \lambda\sum_{i=1}^{n}|\theta_i|$
-- **L2 Regularization (Ridge)**: $J(\theta) = MSE + \lambda\sum_{i=1}^{n}\theta_i^2$
-
-### Evaluation Metrics
-- **Accuracy**: $\frac{TP + TN}{TP + TN + FP + FN}$
-- **Precision**: $\frac{TP}{TP + FP}$
-- **Recall**: $\frac{TP}{TP + FN}$
-- **F1 Score**: $2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}$
-- **R² Score**: $R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}$
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=flat&logo=github)](https://github.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
-## Contributing
-Feel free to contribute by adding more formulas or improving existing ones!
+## 📑 Table of Contents
 
-## License
-MIT License
+- [Linear Algebra](#1-linear-algebra)
+- [Calculus](#2-calculus)
+- [Probability](#3-probability)
+- [Statistics](#4-statistics)
+- [Linear & Logistic Regression](#5-linear--logistic-regression)
+- [Neural Networks](#6-neural-networks)
+- [Optimization Algorithms](#7-optimization-algorithms)
+- [Evaluation Metrics](#8-evaluation-metrics)
+- [Clustering](#9-clustering)
+- [Deep Learning](#10-deep-learning)
+- [Dimensionality Reduction](#11-dimensionality-reduction)
+- [Information Theory](#12-information-theory)
+- [Support Vector Machines](#13-support-vector-machines)
+- [Decision Trees & Ensembles](#14-decision-trees--ensemble-methods)
+- [Bias-Variance Tradeoff](#15-bias-variance-tradeoff)
+
+---
+
+## 1. Linear Algebra
+
+### 🔢 Vectors and Matrices
+
+| Formula | Expression |
+|---------|------------|
+| **Dot Product** | `a · b = Σ(aᵢbᵢ) = a₁b₁ + a₂b₂ + ... + aₙbₙ` |
+| **Matrix Multiplication** | `C = AB where Cᵢⱼ = Σₖ(AᵢₖBₖⱼ)` |
+| **Transpose** | `(AB)ᵀ = BᵀAᵀ` |
+| **Identity Matrix** | `AI = IA = A` |
+| **Inverse Matrix** | `AA⁻¹ = A⁻¹A = I` |
+
+### 📏 Norms
+
+| Norm Type | Formula |
+|-----------|---------|
+| **L1 Norm (Manhattan)** | `‖x‖₁ = Σ\|xᵢ\|` |
+| **L2 Norm (Euclidean)** | `‖x‖₂ = √(Σxᵢ²)` |
+| **Frobenius Norm** | `‖A‖F = √(ΣᵢΣⱼ aᵢⱼ²)` |
+
+### 🎯 Eigenvalues and Eigenvectors
+
+```
+Eigenvalue Equation:     Av = λv
+Characteristic Equation: det(A - λI) = 0
+Trace:                   tr(A) = Σλᵢ = Σaᵢᵢ
+Determinant:             det(A) = Πλᵢ
+```
+
+---
+
+## 2. Calculus
+
+### 📐 Basic Derivatives
+
+| Rule | Formula |
+|------|---------|
+| **Power Rule** | `d/dx(xⁿ) = nxⁿ⁻¹` |
+| **Chain Rule** | `d/dx[f(g(x))] = f'(g(x)) · g'(x)` |
+| **Product Rule** | `d/dx[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)` |
+| **Quotient Rule** | `d/dx[f(x)/g(x)] = [f'(x)g(x) - f(x)g'(x)]/g(x)²` |
+
+### ∇ Partial Derivatives
+
+```
+Gradient:        ∇f = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]
+Hessian Matrix:  Hᵢⱼ = ∂²f/(∂xᵢ∂xⱼ)
+Jacobian Matrix: Jᵢⱼ = ∂fᵢ/∂xⱼ
+```
+
+### 🧮 Common Activation Function Derivatives
+
+| Function | Derivative |
+|----------|------------|
+| **Sigmoid** | `σ'(x) = σ(x)(1 - σ(x))` |
+| **Tanh** | `tanh'(x) = 1 - tanh²(x)` |
+| **ReLU** | `ReLU'(x) = {1 if x > 0, 0 otherwise}` |
+| **Exponential** | `d/dx(eˣ) = eˣ` |
+| **Logarithm** | `d/dx(ln x) = 1/x` |
+
+---
+
+## 3. Probability
+
+### 🎲 Basic Probability Rules
+
+```
+Probability:              P(A) = (Favorable outcomes)/(Total outcomes)
+Complement Rule:          P(Aᶜ) = 1 - P(A)
+Addition Rule:            P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+Multiplication Rule:      P(A ∩ B) = P(A|B)P(B) = P(B|A)P(A)
+Conditional Probability:  P(A|B) = P(A ∩ B)/P(B)
+```
+
+### 🔮 Bayes' Theorem
+
+```
+Bayes' Rule:      P(A|B) = [P(B|A)P(A)]/P(B)
+
+Extended Form:    P(A|B) = [P(B|A)P(A)]/[P(B|A)P(A) + P(B|Aᶜ)P(Aᶜ)]
+```
+
+> **💡 Key Application:** Fundamental in ML for classification, spam detection, and probabilistic reasoning
+
+### 📊 Expected Value & Variance
+
+| Concept | Formula |
+|---------|---------|
+| **Expected Value** | `E[X] = Σ xᵢP(xᵢ)` or `∫ xf(x)dx` |
+| **Variance** | `Var(X) = E[(X - μ)²] = E[X²] - (E[X])²` |
+| **Standard Deviation** | `σ = √Var(X)` |
+| **Covariance** | `Cov(X,Y) = E[(X - μₓ)(Y - μᵧ)]` |
+| **Correlation** | `ρ(X,Y) = Cov(X,Y)/(σₓσᵧ)` |
+
+---
+
+## 4. Statistics
+
+### 📈 Descriptive Statistics
+
+| Measure | Formula |
+|---------|---------|
+| **Mean** | `μ = (1/n)Σxᵢ` |
+| **Sample Variance** | `s² = [1/(n-1)]Σ(xᵢ - x̄)²` |
+| **Population Variance** | `σ² = (1/n)Σ(xᵢ - μ)²` |
+| **Standard Error** | `SE = σ/√n` |
+
+### 🎯 Hypothesis Testing
+
+```
+Z-score:             z = (x - μ)/σ
+T-statistic:         t = (x̄ - μ)/(s/√n)
+Confidence Interval: CI = x̄ ± z(α/2) · SE
+```
+
+**Key Terms:**
+- **Type I Error (α):** Rejecting true null hypothesis
+- **Type II Error (β):** Failing to reject false null hypothesis
+- **Power:** 1 - β
+
+---
+
+## 5. Linear & Logistic Regression
+
+### 📉 Linear Regression
+
+| Component | Formula |
+|-----------|---------|
+| **Simple Model** | `y = β₀ + β₁x + ε` |
+| **Matrix Form** | `y = Xβ + ε` |
+| **Normal Equation** | `β = (XᵀX)⁻¹Xᵀy` |
+| **Predicted Values** | `ŷ = Xβ` |
+
+### 📊 Loss Functions
+
+```
+Mean Squared Error (MSE):     MSE = (1/n)Σ(yᵢ - ŷᵢ)²
+Root Mean Squared Error:      RMSE = √MSE
+Mean Absolute Error (MAE):    MAE = (1/n)Σ|yᵢ - ŷᵢ|
+R-squared:                    R² = 1 - [Σ(yᵢ - ŷᵢ)²]/[Σ(yᵢ - ȳ)²]
+Adjusted R²:                  R²adj = 1 - [(1 - R²)(n - 1)]/(n - p - 1)
+```
+
+### 🔄 Logistic Regression
+
+| Component | Formula |
+|-----------|---------|
+| **Sigmoid Function** | `σ(z) = 1/(1 + e⁻ᶻ)` |
+| **Logit** | `z = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ` |
+| **Probability** | `P(y=1\|x) = σ(wᵀx + b)` |
+| **Odds** | `Odds = P(y=1)/P(y=0) = eᶻ` |
+| **Log-Odds** | `log(Odds) = z` |
+
+```
+Log Loss (Binary Cross-Entropy):
+L = -(1/n)Σ[yᵢlog(ŷᵢ) + (1-yᵢ)log(1-ŷᵢ)]
+```
+
+### 🛡️ Regularization
+
+| Type | Cost Function |
+|------|---------------|
+| **Ridge (L2)** | `J(β) = Σ(yᵢ - ŷᵢ)² + λΣβⱼ²` |
+| **Lasso (L1)** | `J(β) = Σ(yᵢ - ŷᵢ)² + λΣ\|βⱼ\|` |
+| **Elastic Net** | `J(β) = Σ(yᵢ - ŷᵢ)² + λ₁Σ\|βⱼ\| + λ₂Σβⱼ²` |
+
+---
+
+## 6. Neural Networks
+
+### ⚡ Activation Functions
+
+| Function | Formula |
+|----------|---------|
+| **Sigmoid** | `σ(x) = 1/(1 + e⁻ˣ)` |
+| **Tanh** | `tanh(x) = (eˣ - e⁻ˣ)/(eˣ + e⁻ˣ)` |
+| **ReLU** | `ReLU(x) = max(0, x)` |
+| **Leaky ReLU** | `f(x) = {x if x > 0, αx otherwise}` |
+| **Softmax** | `softmax(xᵢ) = eˣⁱ/Σⱼeˣʲ` |
+
+### 🔄 Forward Propagation
+
+```
+Linear Combination:  z⁽ˡ⁾ = W⁽ˡ⁾a⁽ˡ⁻¹⁾ + b⁽ˡ⁾
+Activation:          a⁽ˡ⁾ = g(z⁽ˡ⁾)
+```
+
+### ⬅️ Backpropagation
+
+```
+Output Layer Error:   δ⁽ᴸ⁾ = (a⁽ᴸ⁾ - y) ⊙ g'(z⁽ᴸ⁾)
+Hidden Layer Error:   δ⁽ˡ⁾ = [(W⁽ˡ⁺¹⁾)ᵀδ⁽ˡ⁺¹⁾] ⊙ g'(z⁽ˡ⁾)
+Weight Gradient:      ∂L/∂W⁽ˡ⁾ = δ⁽ˡ⁾(a⁽ˡ⁻¹⁾)ᵀ
+Bias Gradient:        ∂L/∂b⁽ˡ⁾ = δ⁽ˡ⁾
+```
+
+---
+
+## 7. Optimization Algorithms
+
+### ⬇️ Gradient Descent
+
+| Variant | Update Rule |
+|---------|-------------|
+| **Batch GD** | `θ := θ - α∇J(θ)` |
+| **Stochastic GD** | `θ := θ - α∇J(θ; xⁱ, yⁱ)` |
+| **Mini-batch GD** | Uses small batches of data |
+
+### 🚀 Advanced Optimizers
+
+```
+Momentum:
+  v := βv + (1-β)∇J(θ)
+  θ := θ - αv
+
+RMSprop:
+  s := βs + (1-β)(∇J)²
+  θ := θ - α∇J/√(s + ε)
+
+Adam:
+  m := β₁m + (1-β₁)∇J
+  v := β₂v + (1-β₂)(∇J)²
+  θ := θ - α·m̂/√(v̂ + ε)
+```
+
+---
+
+## 8. Evaluation Metrics
+
+### ✅ Classification Metrics
+
+| Metric | Formula |
+|--------|---------|
+| **Accuracy** | `(TP + TN)/(TP + TN + FP + FN)` |
+| **Precision** | `TP/(TP + FP)` |
+| **Recall (Sensitivity)** | `TP/(TP + FN)` |
+| **Specificity** | `TN/(TN + FP)` |
+| **F1-Score** | `2·(Precision·Recall)/(Precision + Recall)` |
+| **F-beta Score** | `(1 + β²)·(Precision·Recall)/(β²·Precision + Recall)` |
+
+### 📉 Confusion Matrix
+
+```
+                    Predicted
+                 Positive  Negative
+Actual Positive     TP        FN
+       Negative     FP        TN
+```
+
+**Legend:**
+- **TP** = True Positive
+- **TN** = True Negative
+- **FP** = False Positive (Type I Error)
+- **FN** = False Negative (Type II Error)
+
+### 📈 ROC Curve
+
+```
+TPR (True Positive Rate):  TP/(TP + FN)
+FPR (False Positive Rate): FP/(FP + TN)
+AUC (Area Under Curve):    ∫₀¹ TPR(FPR⁻¹(x))dx
+```
+
+---
+
+## 9. Clustering
+
+### 🎯 K-Means
+
+```
+Objective Function:  minimize Σᵏⱼ₌₁ Σₓ∈Cⱼ ||x - μⱼ||²
+Centroid Update:     μⱼ = (1/|Cⱼ|)Σₓ∈Cⱼ x
+```
+
+### 📏 Distance Metrics
+
+| Metric | Formula |
+|--------|---------|
+| **Euclidean** | `d(x, y) = √(Σᵢ(xᵢ - yᵢ)²)` |
+| **Manhattan** | `d(x, y) = Σᵢ\|xᵢ - yᵢ\|` |
+| **Cosine Similarity** | `cos(θ) = (x·y)/(‖x‖·‖y‖)` |
+
+### 📊 Silhouette Score
+
+```
+s(i) = [b(i) - a(i)]/max{a(i), b(i)}
+
+Where:
+  a(i) = mean distance to points in same cluster
+  b(i) = mean distance to points in nearest cluster
+```
+
+---
+
+## 10. Deep Learning
+
+### 🔄 Batch Normalization
+
+```
+Normalize:        x̂ = (x - μ_B)/√(σ²_B + ε)
+Scale and Shift:  y = γx̂ + β
+```
+
+### 🧠 Convolutional Neural Networks (CNN)
+
+```
+Convolution Operation:  (f * g)(t) = Σₓ f(x)g(t - x)
+Output Size:            O = [(W - K + 2P)/S] + 1
+
+Where:
+  W = input size
+  K = kernel size
+  P = padding
+  S = stride
+```
+
+### 🔁 Recurrent Neural Networks (RNN)
+
+```
+Hidden State:  hₜ = tanh(Wₓₕxₜ + Wₕₕhₜ₋₁ + bₕ)
+Output:        yₜ = Wₕᵧhₜ + bᵧ
+```
+
+### 🧬 Long Short-Term Memory (LSTM)
+
+```
+Forget Gate:  fₜ = σ(Wf·[hₜ₋₁, xₜ] + bf)
+Input Gate:   iₜ = σ(Wᵢ·[hₜ₋₁, xₜ] + bᵢ)
+Output Gate:  oₜ = σ(Wo·[hₜ₋₁, xₜ] + bo)
+Cell State:   Cₜ = fₜ ⊙ Cₜ₋₁ + iₜ ⊙ C̃ₜ
+```
+
+### 💧 Dropout
+
+```
+Training:  Output = mask ⊙ activation / (1 - p)
+Testing:   Use all neurons (no dropout)
+```
+
+---
+
+## 11. Dimensionality Reduction
+
+### 📊 Principal Component Analysis (PCA)
+
+```
+Covariance Matrix:          Σ = (1/n)XᵀX
+Principal Components:       Eigenvectors of Σ
+Explained Variance Ratio:   λᵢ/Σⱼλⱼ
+Projection:                 Z = XW (W = eigenvectors)
+```
+
+### 🔢 Singular Value Decomposition (SVD)
+
+```
+Decomposition:   X = UΣVᵀ
+Reduced Form:    X ≈ UₖΣₖVₖᵀ
+```
+
+---
+
+## 12. Information Theory
+
+### 📡 Entropy and Information
+
+| Measure | Formula |
+|---------|---------|
+| **Entropy** | `H(X) = -Σ P(xᵢ)log₂P(xᵢ)` |
+| **Cross-Entropy** | `H(p,q) = -Σ p(x)log q(x)` |
+| **KL Divergence** | `DKL(P‖Q) = Σ P(x)log[P(x)/Q(x)]` |
+| **Mutual Information** | `I(X;Y) = H(X) - H(X\|Y) = H(Y) - H(Y\|X)` |
+| **Conditional Entropy** | `H(Y\|X) = -ΣₓΣᵧ P(x,y)log P(y\|x)` |
+
+---
+
+## 13. Support Vector Machines
+
+### 🎯 Linear SVM
+
+```
+Decision Function:  f(x) = wᵀx + b
+Margin:             2/||w||
+Optimization:       minimize ½||w||²
+                    subject to yᵢ(wᵀxᵢ + b) ≥ 1
+```
+
+### 🛡️ Soft Margin SVM
+
+```
+Objective:   minimize ½||w||² + CΣξᵢ
+Constraint:  yᵢ(wᵀxᵢ + b) ≥ 1 - ξᵢ, ξᵢ ≥ 0
+```
+
+### 🔧 Kernel Functions
+
+| Kernel | Formula |
+|--------|---------|
+| **Linear** | `K(x, x') = xᵀx'` |
+| **Polynomial** | `K(x, x') = (xᵀx' + c)ᵈ` |
+| **RBF (Gaussian)** | `K(x, x') = exp(-γ‖x - x'‖²)` |
+| **Sigmoid** | `K(x, x') = tanh(αxᵀx' + c)` |
+
+---
+
+## 14. Decision Trees & Ensemble Methods
+
+### 🌳 Impurity Measures
+
+| Measure | Formula |
+|---------|---------|
+| **Gini Impurity** | `Gini = 1 - Σᵢ pᵢ²` |
+| **Entropy** | `H = -Σᵢ pᵢlog₂(pᵢ)` |
+| **Classification Error** | `E = 1 - max(pᵢ)` |
+
+```
+Information Gain:  IG(D, A) = H(D) - Σᵥ[(|Dᵥ|/|D|)·H(Dᵥ)]
+```
+
+### 🌲 Ensemble Methods
+
+```
+Bagging (Random Forest):
+  Prediction: ŷ = (1/B)Σᵇ fᵇ(x)
+
+AdaBoost:
+  Sample Weight:  wᵢ⁽ᵗ⁺¹⁾ = wᵢ⁽ᵗ⁾·exp[αₜ·I(yᵢ ≠ hₜ(xᵢ))]
+  Model Weight:   αₜ = ½ln[(1 - εₜ)/εₜ]
+
+Gradient Boosting:
+  Update:   Fₘ(x) = Fₘ₋₁(x) + γₘhₘ(x)
+  Residual: rᵢₘ = -[∂L(yᵢ, F(xᵢ))/∂F(xᵢ)]
+```
+
+---
+
+## 15. Bias-Variance Tradeoff
+
+### ⚖️ Error Decomposition
+
+```
+Total Error = Bias² + Variance + Irreducible Error
+
+Bias:     Bias = E[ŷ] - y
+Variance: Variance = E[(ŷ - E[ŷ])²]
+```
+
+**Key Insights:**
+- **High Bias** → Underfitting (model too simple)
+- **High Variance** → Overfitting (model too complex)
+- **Goal:** Find the optimal balance between bias and variance
+
+---
+
+## 🎯 Quick Reference: Loss Functions
+
+### Regression Losses
+
+| Loss | Formula | Use Case |
+|------|---------|----------|
+| **MSE** | `L = (1/n)Σ(yᵢ - ŷᵢ)²` | Standard regression |
+| **MAE** | `L = (1/n)Σ\|yᵢ - ŷᵢ\|` | Robust to outliers |
+| **Huber** | `L = {½(y - ŷ)² if \|y - ŷ\| ≤ δ, δ\|y - ŷ\| - ½δ² otherwise}` | Combines MSE & MAE |
+
+### Classification Losses
+
+| Loss | Formula | Use Case |
+|------|---------|----------|
+| **Binary Cross-Entropy** | `L = -[ylog(ŷ) + (1-y)log(1-ŷ)]` | Binary classification |
+| **Categorical Cross-Entropy** | `L = -Σᵢ yᵢlog(ŷᵢ)` | Multi-class classification |
+| **Hinge Loss** | `L = max(0, 1 - y·ŷ)` | SVM classification |
+
+---
+
+## 🎓 Feature Engineering
+
+### Normalization Techniques
+
+| Method | Formula | Range |
+|--------|---------|-------|
+| **Min-Max Scaling** | `x' = (x - min)/(max - min)` | [0, 1] |
+| **Z-Score Normalization** | `x' = (x - μ)/σ` | ~ [-3, 3] |
+| **Max Abs Scaling** | `x' = x/\|max\|` | [-1, 1] |
+
+### Polynomial Features
+
+```
+Degree 2: [x₁, x₂] → [1, x₁, x₂, x₁², x₁x₂, x₂²]
+Degree 3: [x₁, x₂] → [1, x₁, x₂, x₁², x₁x₂, x₂², x₁³, x₁²x₂, x₁x₂², x₂³]
+```
+
+---
+
+## 🌟 Contributing
+
+Contributions are welcome! If you find any errors or want to add more formulas:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/new-formulas`)
+3. Make your changes
+4. Commit your changes (`git commit -am 'Add new formulas'`)
+5. Push to the branch (`git push origin feature/new-formulas`)
+6. Create a Pull Request
+
+---
+
+## 📚 Resources
+
+- [Mathematics for Machine Learning Book](https://mml-book.github.io/)
+- [Deep Learning Book](https://www.deeplearningbook.org/)
+- [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/)
+- [Scikit-learn Documentation](https://scikit-learn.org/)
+- [TensorFlow Documentation](https://www.tensorflow.org/)
+- [PyTorch Documentation](https://pytorch.org/)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 💡 Tips for Using This Guide
+
+1. **Bookmark** this page for quick reference during ML projects
+2. **Print** specific sections you use frequently
+3. **Practice** implementing these formulas in code
+4. **Understand** the intuition behind each formula, not just memorization
+5. **Share** with fellow ML practitioners and students
+
+---
+
+## 🤝 Acknowledgments
+
+Created with ❤️ for the Machine Learning community. Special thanks to all contributors and the open-source ML community.
+
+---
+
+## ⭐ Star This Repo!
+
+If you find this helpful, please consider giving it a star! It helps others discover this resource.
+
+---
+
+**Happy Learning! 🚀📊🤖**
