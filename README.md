@@ -572,4 +572,55 @@ If you find this helpful, please consider giving it a star! It helps others disc
 
 ---
 
+## 👥 Contributors
+
+<div align="center">
+
+### Created and Maintained by
+
+<a href="https://github.com/iNSRawat">
+  <img src="https://github.com/iNSRawat.png" width="100" height="100" style="border-radius: 50%;" alt="iNSRawat"/>
+</a>
+
+**[@iNSRawat](https://github.com/iNSRawat)**
+
+*Creator & Maintainer*
+
+---
+
+### 🤝 Want to Contribute?
+
+We welcome contributions! If you have:
+- Formula corrections or additions
+- Documentation improvements
+- Feature suggestions
+- Bug reports
+
+Please feel free to:
+1. Fork the repository
+2. Make your changes
+3. Submit a pull request
+
+---
+
+### 📬 Connect
+
+- 💼 **LinkedIn**: [Connect with me](https://linkedin.com/in/insrawat)
+- 🐦 **Twitter**: [@iNSRawat](https://twitter.com/insrawat)
+- 📧 **GitHub**: [Open an issue](https://github.com/iNSRawat/Mathematics-Formulas-for-Data-Science-Machine-Learning/issues)
+
+---
+
+<div align="center">
+
+⭐ **If this project helped you, please give it a star!** ⭐
+
+Made with ❤️ by [@iNSRawat](https://github.com/iNSRawat)
+
+</div>
+
+</div>
+
+---
+
 **Happy Learning! 🚀📊🤖**
