@@ -326,4 +326,49 @@ If you have questions about assets or need help adding specific files, please op
 
 ---
 
+## 👥 Contributors
+
+<div align="center">
+
+### This assets guide was created and maintained by:
+
+<a href="https://github.com/iNSRawat">
+  <img src="https://github.com/iNSRawat.png" width="80" height="80" style="border-radius: 50%;" alt="iNSRawat"/>
+</a>
+
+**[@iNSRawat](https://github.com/iNSRawat)**
+
+*Creator & Maintainer*
+
+</div>
+
+### 🤝 Want to Contribute?
+
+We welcome contributions! If you have:
+- Better asset organization ideas
+- Optimization tips
+- Example assets to share
+- Documentation improvements
+
+Please feel free to:
+1. Fork the repository
+2. Make your changes
+3. Submit a pull request
+
+### 📬 Contact
+
+- 💼 **LinkedIn**: [Connect with the creator](https://linkedin.com/in/insrawat)
+- 🐦 **Twitter**: [@iNSRawat](https://twitter.com/insrawat)
+- 📧 **GitHub**: [Open an issue](https://github.com/iNSRawat/Mathematics-Formulas-for-Data-Science-Machine-Learning/issues)
+
+---
+
+**Note:** The current project is fully functional without any assets folder. This guide is for enhancement and future expansion.
+
+<div align="center">
+
+Made with ❤️ by [@iNSRawat](https://github.com/iNSRawat)
+
+</div>
+
 **Note:** The current project is fully functional without any assets folder. This guide is for enhancement and future expansion.
