@@ -542,6 +542,50 @@ Contributions are welcome! If you find any errors or want to add more formulas:
 - [TensorFlow Documentation](https://www.tensorflow.org/)
 - [PyTorch Documentation](https://pytorch.org/)
 
+### 🎓 Free Online Courses & Video Lectures
+
+- [Khan Academy - Linear Algebra](https://www.khanacademy.org/math/linear-algebra) - Comprehensive free course on vectors, matrices, and transformations
+- [Khan Academy - Multivariable Calculus](https://www.khanacademy.org/math/multivariable-calculus) - Free course covering derivatives, integrals in multiple dimensions
+- [Khan Academy - Statistics & Probability](https://www.khanacademy.org/math/statistics-probability) - Foundation in probability, random variables, and statistical inference
+- [3Blue1Brown - Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) - Visual, intuitive video series on linear algebra concepts
+- [3Blue1Brown - Essence of Calculus](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) - Beautiful visual explanations of calculus fundamentals
+- [MIT OCW - Linear Algebra (18.06)](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) - Prof. Gilbert Strang's legendary MIT course
+- [MIT OCW - Single Variable Calculus](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/) - Complete calculus course with problem sets
+- [MIT OCW - Multivariable Calculus](https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/) - Extends calculus to multiple variables
+- [MIT OCW - Matrix Methods in Data Analysis](https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/) - Linear algebra for ML applications
+- [StatQuest with Josh Starmer](https://www.youtube.com/c/joshstarmer) - Clear explanations of statistics and ML concepts
+- [Coursera - Mathematics for Machine Learning Specialization](https://www.coursera.org/specializations/mathematics-for-machine-learning) - Free to audit, covers linear algebra, calculus, and PCA
+- [Coursera - Data Science Math Skills](https://www.coursera.org/learn/datasciencemathskills) - Free to audit, basics for data science
+- [NPTEL - Essential Mathematics for Machine Learning](https://onlinecourses.nptel.ac.in/noc21_ma38/preview) - Indian university course on ML math
+- [NPTEL - Probability and Statistics](https://onlinecourses.nptel.ac.in/noc21_ma74/preview) - Comprehensive probability course
+- [CMU Open Learning - Probability & Statistics](https://oli.cmu.edu/courses/probability-statistics-open-free/) - Self-paced interactive course
+
+### 📖 Free Textbooks & Reading Materials
+
+- [Immersive Linear Algebra](http://immersivemath.com/ila/index.html) - Interactive linear algebra textbook with visualizations
+- [Linear Algebra Done Right](https://linear.axler.net/) - Free online version of the popular textbook
+- [Introduction to Probability](https://projects.iq.harvard.edu/stat110/home) - Harvard's Stat 110 course materials
+- [Think Stats](https://greenteapress.com/thinkstats/) - Free book on probability and statistics for programmers
+- [Seeing Theory](https://seeing-theory.brown.edu/) - Visual introduction to probability and statistics
+- [Statistics Done Wrong](https://www.statisticsdonewrong.com/) - Learn common statistical mistakes to avoid
+
+### 💻 Open Source GitHub Repositories
+
+- [Awesome Data Science](https://github.com/academic/awesome-datascience) - Comprehensive open-source Data Science repository to learn and apply towards solving real-world problems
+- [Awesome Machine Learning](https://github.com/josephmisiti/awesome-machine-learning) - Curated list of awesome ML frameworks, libraries and software (by language)
+- [Data Science For Beginners by Microsoft](https://github.com/microsoft/Data-Science-For-Beginners) - 10-week, 20-lesson curriculum with quizzes and hands-on projects
+- [ML For Beginners by Microsoft](https://github.com/microsoft/ML-For-Beginners) - 12-week, 26-lesson curriculum for Machine Learning beginners
+- [Python Data Science Handbook](https://github.com/jakevdp/PythonDataScienceHandbook) - Full text in Jupyter Notebooks covering NumPy, Pandas, Matplotlib, Scikit-Learn
+- [Data Science Masters](https://github.com/datasciencemasters/go) - Open-source curriculum for aspiring data scientists
+- [OSSU Data Science](https://github.com/ossu/data-science) - Path to free self-taught education in Data Science
+- [Homemade Machine Learning](https://github.com/trekhleb/homemade-machine-learning) - Python implementations of ML algorithms with math explanations
+- [ML YouTube Courses](https://github.com/dair-ai/ML-YouTube-Courses) - Curated index of quality ML courses on YouTube from Stanford, MIT, Caltech
+- [Applied ML](https://github.com/eugeneyan/applied-ml) - Papers and tech blogs on real-world ML applications in production
+- [Awesome Production ML](https://github.com/EthicalML/awesome-production-machine-learning) - Libraries to deploy, monitor, version, scale and secure ML models
+- [DS Cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets) - Collection of Data Science cheatsheets from Python to Big Data
+- [Free Data Science Books](https://github.com/chaconnewu/free-data-science-books) - List of free books for Data Science and Big Data concepts
+- [Data Science Learning Resources](https://github.com/bradleyboehmke/data-science-learning-resources) - Curated collection of data science and ML resources
+
 ---
 
 ## 📝 License
