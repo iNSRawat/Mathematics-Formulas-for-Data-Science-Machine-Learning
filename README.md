@@ -615,11 +615,6 @@ Created with ❤️ for the Machine Learning community. Special thanks to all co
 If you find this helpful, please consider giving it a star! It helps others discover this resource.
 
 ---
-
-## 👥 Contributors
-
-<div align="center">
-
 ### Created and Maintained by
 
 <a href="https://github.com/iNSRawat">
