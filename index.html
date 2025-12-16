@@ -50,6 +50,30 @@
     .section-number{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--secondary));box-shadow:0 8px 20px rgba(102,126,234,0.18)}
     .section-title{font-size:2rem;color:var(--dark);font-weight:700}
 
+    /* Foldable sections (accordion) */
+    details.section{border-radius:14px}
+    details.section summary{list-style:none}
+    details.section summary::-webkit-details-marker{display:none}
+    .section-summary{cursor:pointer;user-select:none}
+    .section-summary:focus{outline:none}
+    .section-summary:focus-visible{outline:3px solid rgba(102,126,234,0.45);outline-offset:6px;border-radius:12px}
+    /* Keep the header spacing consistent inside summary */
+    .section-summary .section-header{margin-bottom:0}
+    .section-summary .section-header::after{
+      content:'▸';
+      margin-left:auto;
+      font-size:1.3rem;
+      color:var(--secondary);
+      transform:rotate(0deg);
+      transition:transform .2s ease, opacity .2s ease;
+      opacity:0.9;
+    }
+    details.section[open] .section-summary .section-header::after{transform:rotate(90deg);opacity:1}
+
+    .section-body{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s ease,opacity .25s ease}
+    .section-body-inner{overflow:hidden;padding-top:26px}
+    details.section[open] .section-body{grid-template-rows:1fr;opacity:1}
+
     .subsection{background:linear-gradient(135deg,#f8f9fa 0%,#eef2f7 100%);padding:26px;border-radius:12px;margin-bottom:24px;border-left:6px solid var(--primary);box-shadow:0 6px 20px rgba(14,30,37,0.04);transition:transform .3s ease,box-shadow .3s ease}
     .subsection:hover{transform:translateX(5px);box-shadow:0 8px 24px rgba(14,30,37,0.08)}
     .subsection-title{font-size:1.2rem;color:var(--secondary);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:12px}
@@ -93,6 +117,7 @@
     body.dark-mode footer{background:#02050a}
     body.dark-mode .nav-wrapper{background:#071226;box-shadow:0 4px 12px rgba(0,0,0,0.4)}
     body.dark-mode .nav{background:#071226;border-bottom-color:rgba(102,126,234,0.25)}
+    body.dark-mode .section-summary .section-header::after{color:#c7b5ff}
 
     @media (max-width:900px){
       .container{margin:0 12px;border-radius:10px}
@@ -138,11 +163,15 @@
 
     <div class="content">
       <!-- 1. LINEAR ALGEBRA -->
-      <section id="linear-algebra" class="section" aria-labelledby="la-title">
-        <div class="section-header">
-          <div class="section-number">1</div>
-          <h2 id="la-title" class="section-title">Linear Algebra</h2>
-        </div>
+      <details id="linear-algebra" class="section fold-section" aria-labelledby="la-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">1</div>
+            <h2 id="la-title" class="section-title">Linear Algebra</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">🔢 Vectors & Matrices</div>
@@ -183,14 +212,20 @@ Trace: \(\mathrm{tr}(A)=\sum_i \lambda_i\)<br/>
 Determinant: \(\det(A)=\prod_i \lambda_i\)
           </div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 2. CALCULUS -->
-      <section id="calculus" class="section" aria-labelledby="calc-title">
-        <div class="section-header">
-          <div class="section-number">2</div>
-          <h2 id="calc-title" class="section-title">Calculus</h2>
-        </div>
+      <details id="calculus" class="section fold-section" aria-labelledby="calc-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">2</div>
+            <h2 id="calc-title" class="section-title">Calculus</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">📐 Derivatives & Gradients</div>
@@ -211,14 +246,20 @@ Determinant: \(\det(A)=\prod_i \lambda_i\)
             <tr><td>ReLU</td><td>$$\text{ReLU}'(x)=\begin{cases}1&x>0\\0&\text{otherwise}\end{cases}$$</td></tr>
           </table>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 3. PROBABILITY -->
-      <section id="probability" class="section" aria-labelledby="prob-title">
-        <div class="section-header">
-          <div class="section-number">3</div>
-          <h2 id="prob-title" class="section-title">Probability</h2>
-        </div>
+      <details id="probability" class="section fold-section" aria-labelledby="prob-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">3</div>
+            <h2 id="prob-title" class="section-title">Probability</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">🎲 Basics</div>
@@ -277,14 +318,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
           </div>
           <div class="info-box"><strong>Pro tip:</strong> Adam is widely used for deep learning.</div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 4. STATISTICS -->
-      <section id="statistics" class="section" aria-labelledby="stat-title">
-        <div class="section-header">
-          <div class="section-number">4</div>
-          <h2 id="stat-title" class="section-title">Statistics</h2>
-        </div>
+      <details id="statistics" class="section fold-section" aria-labelledby="stat-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">4</div>
+            <h2 id="stat-title" class="section-title">Statistics</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">📈 Descriptive Statistics</div>
@@ -317,14 +364,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
             <div class="formula">$$CI=\bar{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$$</div>
           </div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 5. REGRESSION -->
-      <section id="regression" class="section" aria-labelledby="regress-title">
-        <div class="section-header">
-          <div class="section-number">5</div>
-          <h2 id="regress-title" class="section-title">Regression</h2>
-        </div>
+      <details id="regression" class="section fold-section" aria-labelledby="regress-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">5</div>
+            <h2 id="regress-title" class="section-title">Regression</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">📉 Linear Regression</div>
@@ -371,14 +424,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
             <tr><td>Elastic Net</td><td>$$J(\beta)=\sum(y_i-\hat{y}_i)^2+\lambda_1\sum|\beta_j|+\lambda_2\sum\beta_j^2$$</td></tr>
           </table>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 6. NEURAL NETWORKS -->
-      <section id="neural-networks" class="section" aria-labelledby="nn-title">
-        <div class="section-header">
-          <div class="section-number">6</div>
-          <h2 id="nn-title" class="section-title">Neural Networks</h2>
-        </div>
+      <details id="neural-networks" class="section fold-section" aria-labelledby="nn-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">6</div>
+            <h2 id="nn-title" class="section-title">Neural Networks</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">⚡ Activation Functions</div>
@@ -414,14 +473,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
             <div class="formula">$$\frac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l-1)})^T$$</div>
           </div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 7. OPTIMIZATION -->
-      <section id="optimization" class="section" aria-labelledby="opt-title">
-        <div class="section-header">
-          <div class="section-number">7</div>
-          <h2 id="opt-title" class="section-title">Optimization</h2>
-        </div>
+      <details id="optimization" class="section fold-section" aria-labelledby="opt-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">7</div>
+            <h2 id="opt-title" class="section-title">Optimization</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">⬇️ Gradient Descent Variants</div>
@@ -459,14 +524,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
           </div>
           <div class="info-box"><strong>Pro tip:</strong> Adam is widely used in modern deep learning.</div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 8. EVALUATION METRICS -->
-      <section id="metrics" class="section" aria-labelledby="met-title">
-        <div class="section-header">
-          <div class="section-number">8</div>
-          <h2 id="met-title" class="section-title">Evaluation Metrics</h2>
-        </div>
+      <details id="metrics" class="section fold-section" aria-labelledby="met-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">8</div>
+            <h2 id="met-title" class="section-title">Evaluation Metrics</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">✅ Classification Metrics</div>
@@ -491,14 +562,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
           </div>
           <div class="info-box"><strong>Note:</strong> ROC curves plot TPR vs FPR. AUC measures the area under the ROC curve.</div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 9. CLUSTERING -->
-      <section id="clustering" class="section" aria-labelledby="clust-title">
-        <div class="section-header">
-          <div class="section-number">9</div>
-          <h2 id="clust-title" class="section-title">Clustering</h2>
-        </div>
+      <details id="clustering" class="section fold-section" aria-labelledby="clust-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">9</div>
+            <h2 id="clust-title" class="section-title">Clustering</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">🎯 K-Means Algorithm</div>
@@ -530,14 +607,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
           </div>
           <div class="info-box"><strong>Where:</strong> \(a(i)\) = mean distance to same cluster, \(b(i)\) = mean distance to nearest cluster</div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- 10. DEEP LEARNING -->
-      <section id="deep-learning" class="section" aria-labelledby="dl-title">
-        <div class="section-header">
-          <div class="section-number">10</div>
-          <h2 id="dl-title" class="section-title">Deep Learning</h2>
-        </div>
+      <details id="deep-learning" class="section fold-section" aria-labelledby="dl-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">10</div>
+            <h2 id="dl-title" class="section-title">Deep Learning</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">🧠 Convolutional Neural Networks (CNN)</div>
@@ -584,14 +667,20 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
           </div>
           <div class="info-box"><strong>Dropout:</strong> During training, randomly set activations to 0 with probability \(p\). During testing, use all neurons.</div>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- BONUS TOPICS -->
-      <section id="bonus" class="section" aria-labelledby="bonus-title">
-        <div class="section-header">
-          <div class="section-number">+</div>
-          <h2 id="bonus-title" class="section-title">Bonus Topics</h2>
-        </div>
+      <details id="bonus" class="section fold-section" aria-labelledby="bonus-title">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">+</div>
+            <h2 id="bonus-title" class="section-title">Bonus Topics</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
 
         <div class="subsection">
           <div class="subsection-title">📊 PCA (Principal Component Analysis)</div>
@@ -653,25 +742,33 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
             <tr><td>Information Gain</td><td>$$IG(D,A)=H(D)-\sum_v\frac{|D_v|}{|D|}H(D_v)$$</td></tr>
           </table>
         </div>
-      </section>
+          </div>
+        </div>
+      </details>
 
       <!-- CONTRIBUTOR SECTION -->
-      <section class="section" style="text-align:center;padding:3rem 0;margin-top:3rem;border-top:2px solid var(--muted);">
-        <div class="section-header">
-          <div class="section-number">👤</div>
-          <h2 class="section-title">Contributor</h2>
+      <details class="section fold-section" style="text-align:center;padding:3rem 0;margin-top:3rem;border-top:2px solid var(--muted);">
+        <summary class="section-summary">
+          <div class="section-header">
+            <div class="section-number">👤</div>
+            <h2 class="section-title">Contributor</h2>
+          </div>
+        </summary>
+        <div class="section-body">
+          <div class="section-body-inner">
+            <div style="margin-top:2rem;">
+              <p style="font-size:1.1rem;margin-bottom:1rem;">Created and maintained by:</p>
+              <a href="https://github.com/iNSRawat" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.8rem;padding:1rem 2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;text-decoration:none;border-radius:8px;font-weight:600;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(102,126,234,0.4);">
+                <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.20-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.20 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                <span>@iNSRawat</span>
+              </a>
+              <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--muted);opacity:0.85;">⭐ If this project helped you, consider giving it a star on GitHub!</p>
+            </div>
+          </div>
         </div>
-        <div style="margin-top:2rem;">
-          <p style="font-size:1.1rem;margin-bottom:1rem;">Created and maintained by:</p>
-          <a href="https://github.com/iNSRawat" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.8rem;padding:1rem 2rem;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;text-decoration:none;border-radius:8px;font-weight:600;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(102,126,234,0.4);">
-            <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" style="flex-shrink:0;">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.20-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.20 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-            <span>@iNSRawat</span>
-          </a>
-          <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--muted);opacity:0.85;">⭐ If this project helped you, consider giving it a star on GitHub!</p>
-        </div>
-      </section>
+      </details>
     </div>
 
     <footer>
@@ -697,7 +794,15 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
     function scrollToSection(id){
       const el=document.getElementById(id);
       if(!el) return;
-      el.scrollIntoView({behavior:'smooth',block:'start'});
+      if(el.tagName && el.tagName.toLowerCase()==='details'){
+        // Open target section and collapse others (accordion behavior)
+        document.querySelectorAll('details.section.fold-section[open]').forEach(d=>{
+          if(d!==el) d.open=false;
+        });
+        el.open=true;
+      }
+      // allow layout to update before scrolling
+      setTimeout(()=>{ el.scrollIntoView({behavior:'smooth',block:'start'}); }, 0);
     }
 
     function scrollToTop(){
@@ -735,6 +840,23 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
     })();
 
     document.addEventListener('DOMContentLoaded', function(){
+      // Accordion: only one section open at a time.
+      document.querySelectorAll('details.section.fold-section').forEach(d=>{
+        d.open=false; // ensure everything starts collapsed
+        d.addEventListener('toggle', ()=>{
+          if(!d.open) return;
+          document.querySelectorAll('details.section.fold-section[open]').forEach(other=>{
+            if(other!==d) other.open=false;
+          });
+          // When content becomes visible, ensure MathJax lays out nicely (safe no-op if not loaded yet).
+          try{
+            if(window.MathJax && typeof window.MathJax.typesetPromise==='function'){
+              window.MathJax.typesetPromise();
+            }
+          }catch(e){}
+        });
+      });
+
       const sections=document.querySelectorAll('.section');
       const obs = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{ 
