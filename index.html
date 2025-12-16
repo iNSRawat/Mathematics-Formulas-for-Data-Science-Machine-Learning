@@ -135,7 +135,7 @@
     <h1>📊 Mathematics for Data Science & Machine Learning</h1>
     <p>A comprehensive, beautifully rendered reference for formulas and concepts.</p>
     <div class="hero-stats" aria-hidden="true">
-      <div class="stat-box"><span class="stat-number">15</span><span class="stat-label">Topics</span></div>
+      <div class="stat-box"><span class="stat-number">17</span><span class="stat-label">Topics</span></div>
       <div class="stat-box"><span class="stat-number">200+</span><span class="stat-label">Formulas</span></div>
       <div class="stat-box"><span class="stat-number">∞</span><span class="stat-label">Applications</span></div>
     </div>
@@ -159,6 +159,8 @@
         <button class="nav-btn" onclick="scrollToSection('svm')">SVM</button>
         <button class="nav-btn" onclick="scrollToSection('decision-trees')">Decision Trees</button>
         <button class="nav-btn" onclick="scrollToSection('bias-variance')">Bias-Variance</button>
+        <button class="nav-btn" onclick="scrollToSection('loss-functions')">Loss Functions</button>
+        <button class="nav-btn" onclick="scrollToSection('feature-engineering')">Feature Eng.</button>
       </div>
       <div class="expand-collapse-all">
         <button class="expand-collapse-btn" onclick="expandAllSections()">📂 Expand All</button>
@@ -911,6 +913,83 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               • <strong>High Bias</strong> → Underfitting (model too simple)<br/>
               • <strong>High Variance</strong> → Overfitting (model too complex)<br/>
               • <strong>Goal:</strong> Find the optimal balance between bias and variance
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16. QUICK REFERENCE: LOSS FUNCTIONS -->
+      <section id="loss-functions" class="section" aria-labelledby="loss-title">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-number">16</div>
+          <h2 id="loss-title" class="section-title">Quick Reference: Loss Functions</h2>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="subsection">
+            <div class="subsection-title">📉 Regression Losses</div>
+            <table class="formula-table">
+              <tr><th>Loss</th><th>Formula</th><th>Use Case</th></tr>
+              <tr><td>MSE</td><td>$$L=\frac{1}{n}\sum_{i=1}^n(y_i-\hat{y}_i)^2$$</td><td>Standard regression</td></tr>
+              <tr><td>MAE</td><td>$$L=\frac{1}{n}\sum_{i=1}^n|y_i-\hat{y}_i|$$</td><td>Robust to outliers</td></tr>
+              <tr><td>Huber</td><td>$$L=\begin{cases}\frac{1}{2}(y-\hat{y})^2&|y-\hat{y}|\leq\delta\\\delta|y-\hat{y}|-\frac{1}{2}\delta^2&\text{otherwise}\end{cases}$$</td><td>Combines MSE & MAE</td></tr>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">🎯 Classification Losses</div>
+            <table class="formula-table">
+              <tr><th>Loss</th><th>Formula</th><th>Use Case</th></tr>
+              <tr><td>Binary Cross-Entropy</td><td>$$L=-[y\log(\hat{y})+(1-y)\log(1-\hat{y})]$$</td><td>Binary classification</td></tr>
+              <tr><td>Categorical Cross-Entropy</td><td>$$L=-\sum_i y_i\log(\hat{y}_i)$$</td><td>Multi-class classification</td></tr>
+              <tr><td>Hinge Loss</td><td>$$L=\max(0,1-y\cdot\hat{y})$$</td><td>SVM classification</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17. FEATURE ENGINEERING -->
+      <section id="feature-engineering" class="section" aria-labelledby="fe-title">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-number">17</div>
+          <h2 id="fe-title" class="section-title">Feature Engineering</h2>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="subsection">
+            <div class="subsection-title">📊 Normalization Techniques</div>
+            <table class="formula-table">
+              <tr><th>Method</th><th>Formula</th><th>Range</th></tr>
+              <tr><td>Min-Max Scaling</td><td>$$x'=\frac{x-\min}{\max-\min}$$</td><td>[0, 1]</td></tr>
+              <tr><td>Z-Score Normalization</td><td>$$x'=\frac{x-\mu}{\sigma}$$</td><td>~ [-3, 3]</td></tr>
+              <tr><td>Max Abs Scaling</td><td>$$x'=\frac{x}{|\max|}$$</td><td>[-1, 1]</td></tr>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">🔢 Polynomial Features</div>
+            <div class="formula-card">
+              <div class="formula-name">Degree 2</div>
+              <div class="formula">$$[x_1, x_2] \rightarrow [1, x_1, x_2, x_1^2, x_1 x_2, x_2^2]$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Degree 3</div>
+              <div class="formula">$$[x_1, x_2] \rightarrow [1, x_1, x_2, x_1^2, x_1 x_2, x_2^2, x_1^3, x_1^2 x_2, x_1 x_2^2, x_2^3]$$</div>
+            </div>
+            <div class="info-box">
+              <strong>💡 Tip:</strong> Polynomial features help capture non-linear relationships in data, but be careful of overfitting with high degrees.
+            </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">🏷️ Encoding Categorical Variables</div>
+            <div class="formula-card">
+              <div class="formula-name">One-Hot Encoding</div>
+              <div class="formula">$$\text{Category } c \rightarrow [0, 0, \ldots, 1, \ldots, 0] \text{ (1 at position } c\text{)}$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Label Encoding</div>
+              <div class="formula">$$\text{Categories } \{A, B, C\} \rightarrow \{0, 1, 2\}$$</div>
             </div>
           </div>
         </div>
