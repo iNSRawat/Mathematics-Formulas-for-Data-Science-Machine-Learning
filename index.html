@@ -40,7 +40,7 @@
     .container{max-width:1200px;margin:-36px auto 48px;background:#fff;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.12);overflow:hidden}
     .nav-wrapper{position:sticky;top:0;background:#fff;z-index:50;border-radius:14px 14px 0 0;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
     .nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:18px;border-bottom:3px solid var(--primary)}
-    .nav-btn{background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;color:#fff;padding:10px 18px;border-radius:28px;cursor:pointer;font-weight:600;box-shadow:0 6px 18px rgba(102,126,234,0.18);transition:all .3s ease}
+    .nav-btn{background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;color:#fff;padding:10px 18px;border-radius:28px;cursor:pointer;font-weight:600;box-shadow:0 6px 18px rgba(102,126,234,0.18);transition:all .3s ease;font-size:0.85rem}
     .nav-btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(102,126,234,0.35)}
     .nav-btn:active{transform:translateY(-1px)}
 
@@ -49,7 +49,7 @@
     .section-header{display:flex;align-items:center;gap:18px;padding:20px 26px;border-bottom:4px solid;border-image:linear-gradient(90deg,var(--primary),var(--secondary)) 1;cursor:pointer;user-select:none;transition:background .3s ease;position:relative}
     .section-header:hover{background:linear-gradient(135deg,#f8f9fa 0%,#eef2f7 100%)}
     .section-number{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--secondary));box-shadow:0 8px 20px rgba(102,126,234,0.18);flex-shrink:0}
-    .section-title{font-size:2rem;color:var(--dark);font-weight:700;flex-grow:1}
+    .section-title{font-size:1.8rem;color:var(--dark);font-weight:700;flex-grow:1}
     
     /* Collapsible toggle arrow */
     .section-toggle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-size:1.2rem;transition:transform .3s ease;flex-shrink:0}
@@ -57,7 +57,7 @@
     
     /* Section content collapsible */
     .section-content{max-height:0;overflow:hidden;transition:max-height .4s ease-out, padding .4s ease-out;padding:0 26px}
-    .section.expanded .section-content{max-height:5000px;padding:26px;transition:max-height .6s ease-in, padding .3s ease-in}
+    .section.expanded .section-content{max-height:8000px;padding:26px;transition:max-height .6s ease-in, padding .3s ease-in}
 
     .subsection{background:linear-gradient(135deg,#f8f9fa 0%,#eef2f7 100%);padding:26px;border-radius:12px;margin-bottom:24px;border-left:6px solid var(--primary);box-shadow:0 6px 20px rgba(14,30,37,0.04);transition:transform .3s ease,box-shadow .3s ease}
     .subsection:hover{transform:translateX(5px);box-shadow:0 8px 24px rgba(14,30,37,0.08)}
@@ -114,13 +114,14 @@
     @media (max-width:900px){
       .container{margin:0 12px;border-radius:10px}
       .content{padding:28px 18px}
-      .section-title{font-size:1.6rem}
+      .section-title{font-size:1.4rem}
       .section-header{padding:16px 18px;gap:12px}
       .section-number{width:44px;height:44px;font-size:0.9rem}
       .section-toggle{width:30px;height:30px;font-size:1rem}
       .section.expanded .section-content{padding:18px}
       .hero h1{font-size:1.6rem}
       .visit-counter{top:auto;bottom:172px;right:24px}
+      .nav-btn{padding:8px 12px;font-size:0.75rem}
     }
   </style>
 </head>
@@ -134,7 +135,7 @@
     <h1>📊 Mathematics for Data Science & Machine Learning</h1>
     <p>A comprehensive, beautifully rendered reference for formulas and concepts.</p>
     <div class="hero-stats" aria-hidden="true">
-      <div class="stat-box"><span class="stat-number">15+</span><span class="stat-label">Topics</span></div>
+      <div class="stat-box"><span class="stat-number">15</span><span class="stat-label">Topics</span></div>
       <div class="stat-box"><span class="stat-number">200+</span><span class="stat-label">Formulas</span></div>
       <div class="stat-box"><span class="stat-number">∞</span><span class="stat-label">Applications</span></div>
     </div>
@@ -153,7 +154,11 @@
         <button class="nav-btn" onclick="scrollToSection('metrics')">Metrics</button>
         <button class="nav-btn" onclick="scrollToSection('clustering')">Clustering</button>
         <button class="nav-btn" onclick="scrollToSection('deep-learning')">Deep Learning</button>
-        <button class="nav-btn" onclick="scrollToSection('bonus')">Bonus Topics</button>
+        <button class="nav-btn" onclick="scrollToSection('dimensionality-reduction')">Dim. Reduction</button>
+        <button class="nav-btn" onclick="scrollToSection('information-theory')">Info Theory</button>
+        <button class="nav-btn" onclick="scrollToSection('svm')">SVM</button>
+        <button class="nav-btn" onclick="scrollToSection('decision-trees')">Decision Trees</button>
+        <button class="nav-btn" onclick="scrollToSection('bias-variance')">Bias-Variance</button>
       </div>
       <div class="expand-collapse-all">
         <button class="expand-collapse-btn" onclick="expandAllSections()">📂 Expand All</button>
@@ -185,6 +190,10 @@
               <div class="formula">$$(AB)^T=B^T A^T$$</div>
             </div>
             <div class="formula-card">
+              <div class="formula-name">Identity Matrix</div>
+              <div class="formula">$$AI = IA = A$$</div>
+            </div>
+            <div class="formula-card">
               <div class="formula-name">Inverse</div>
               <div class="formula">$$AA^{-1}=A^{-1}A=I$$</div>
             </div>
@@ -205,7 +214,7 @@
             <div class="code-block">
 Eigen equation: \(Av=\lambda v\)<br/>
 Characteristic: \(\det(A-\lambda I)=0\)<br/>
-Trace: \(\mathrm{tr}(A)=\sum_i \lambda_i\)<br/>
+Trace: \(\mathrm{tr}(A)=\sum_i \lambda_i = \sum_i a_{ii}\)<br/>
 Determinant: \(\det(A)=\prod_i \lambda_i\)
             </div>
           </div>
@@ -221,12 +230,23 @@ Determinant: \(\det(A)=\prod_i \lambda_i\)
         </div>
         <div class="section-content">
           <div class="subsection">
-            <div class="subsection-title">📐 Derivatives & Gradients</div>
+            <div class="subsection-title">📐 Basic Derivatives</div>
             <table class="formula-table">
               <tr><th>Rule</th><th>Formula</th></tr>
-              <tr><td>Derivative</td><td>$$f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$$</td></tr>
-              <tr><td>Gradient</td><td>$$\nabla f(x)=\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)$$</td></tr>
+              <tr><td>Power Rule</td><td>$$\frac{d}{dx}(x^n) = nx^{n-1}$$</td></tr>
+              <tr><td>Chain Rule</td><td>$$\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$$</td></tr>
+              <tr><td>Product Rule</td><td>$$\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$$</td></tr>
+              <tr><td>Quotient Rule</td><td>$$\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$$</td></tr>
+            </table>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">∇ Partial Derivatives</div>
+            <table class="formula-table">
+              <tr><th>Concept</th><th>Formula</th></tr>
+              <tr><td>Gradient</td><td>$$\nabla f=\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)$$</td></tr>
               <tr><td>Hessian</td><td>$$H_{ij}=\frac{\partial^2 f}{\partial x_i\partial x_j}$$</td></tr>
+              <tr><td>Jacobian</td><td>$$J_{ij}=\frac{\partial f_i}{\partial x_j}$$</td></tr>
             </table>
           </div>
 
@@ -237,6 +257,8 @@ Determinant: \(\det(A)=\prod_i \lambda_i\)
               <tr><td>Sigmoid</td><td>$$\sigma'(x)=\sigma(x)(1-\sigma(x))$$</td></tr>
               <tr><td>Tanh</td><td>$$\tanh'(x)=1-\tanh^2(x)$$</td></tr>
               <tr><td>ReLU</td><td>$$\text{ReLU}'(x)=\begin{cases}1&x>0\\0&\text{otherwise}\end{cases}$$</td></tr>
+              <tr><td>Exponential</td><td>$$\frac{d}{dx}(e^x) = e^x$$</td></tr>
+              <tr><td>Logarithm</td><td>$$\frac{d}{dx}(\ln x) = \frac{1}{x}$$</td></tr>
             </table>
           </div>
         </div>
@@ -251,13 +273,13 @@ Determinant: \(\det(A)=\prod_i \lambda_i\)
         </div>
         <div class="section-content">
           <div class="subsection">
-            <div class="subsection-title">🎲 Basics</div>
+            <div class="subsection-title">🎲 Basic Probability Rules</div>
             <div class="formula-card">
               <div class="formula-name">Probability</div>
               <div class="formula">$$P(A)=\frac{\text{favorable outcomes}}{\text{total outcomes}}$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">Complement</div>
+              <div class="formula-name">Complement Rule</div>
               <div class="formula">$$P(A^c)=1-P(A)$$</div>
             </div>
             <div class="formula-card">
@@ -265,47 +287,38 @@ Determinant: \(\det(A)=\prod_i \lambda_i\)
               <div class="formula">$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">Conditional</div>
+              <div class="formula-name">Multiplication Rule</div>
+              <div class="formula">$$P(A\cap B)=P(A|B)P(B)=P(B|A)P(A)$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Conditional Probability</div>
               <div class="formula">$$P(A|B)=\frac{P(A\cap B)}{P(B)}$$</div>
             </div>
           </div>
 
           <div class="subsection">
             <div class="subsection-title">🔮 Bayes' Theorem</div>
-            <div class="info-box"><strong>Bayes' Rule:</strong> $$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$</div>
+            <div class="formula-card">
+              <div class="formula-name">Bayes' Rule</div>
+              <div class="formula">$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Extended Form</div>
+              <div class="formula">$$P(A|B)=\frac{P(B|A)P(A)}{P(B|A)P(A)+P(B|A^c)P(A^c)}$$</div>
+            </div>
+            <div class="info-box"><strong>💡 Key Application:</strong> Fundamental in ML for classification, spam detection, and probabilistic reasoning</div>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">📊 Expectation & Variance</div>
+            <div class="subsection-title">📊 Expected Value & Variance</div>
             <table class="formula-table">
               <tr><th>Concept</th><th>Formula</th></tr>
-              <tr><td>Expectation</td><td>$$E[X]=\sum x_i P(x_i)\text{ or }\int x f(x)dx$$</td></tr>
-              <tr><td>Variance</td><td>$$\text{Var}(X)=E[X^2]-(E[X])^2$$</td></tr>
+              <tr><td>Expected Value</td><td>$$E[X]=\sum x_i P(x_i)\text{ or }\int x f(x)dx$$</td></tr>
+              <tr><td>Variance</td><td>$$\text{Var}(X)=E[(X-\mu)^2]=E[X^2]-(E[X])^2$$</td></tr>
+              <tr><td>Standard Deviation</td><td>$$\sigma = \sqrt{\text{Var}(X)}$$</td></tr>
               <tr><td>Covariance</td><td>$$\text{Cov}(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]$$</td></tr>
+              <tr><td>Correlation</td><td>$$\rho(X,Y)=\frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}$$</td></tr>
             </table>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">🚀 Gradient Descent & Optimizers</div>
-            <div class="formula-card">
-              <div class="formula-name">Update Rule</div>
-              <div class="formula">$$\theta:=\theta-\alpha\nabla J(\theta)$$</div>
-            </div>
-            <div class="info-box"><strong>Note:</strong> \(\alpha\) is the learning rate.</div>
-            
-            <div class="formula-card">
-              <div class="formula-name">Momentum</div>
-              <div class="formula">$$v:=\beta v+(1-\beta)\nabla J(\theta)\\
-\theta:=\theta-\alpha v$$</div>
-            </div>
-            
-            <div class="formula-card">
-              <div class="formula-name">Adam (Adaptive Moment Estimation)</div>
-              <div class="formula">$$m:=\beta_1 m+(1-\beta_1)\nabla J\\
-v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
-\theta:=\theta-\alpha\frac{\hat m}{\sqrt{\hat v}+\epsilon}$$</div>
-            </div>
-            <div class="info-box"><strong>Pro tip:</strong> Adam is widely used for deep learning.</div>
           </div>
         </div>
       </section>
@@ -332,6 +345,10 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <div class="formula-name">Population Variance</div>
               <div class="formula">$$\sigma^2=\frac{1}{n}\sum_{i=1}^n (x_i-\mu)^2$$</div>
             </div>
+            <div class="formula-card">
+              <div class="formula-name">Standard Error</div>
+              <div class="formula">$$SE = \frac{\sigma}{\sqrt{n}}$$</div>
+            </div>
           </div>
 
           <div class="subsection">
@@ -346,24 +363,30 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
             </div>
             <div class="formula-card">
               <div class="formula-name">Confidence Interval</div>
-              <div class="formula">$$CI=\bar{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$$</div>
+              <div class="formula">$$CI=\bar{x}\pm z_{\alpha/2}\cdot SE$$</div>
+            </div>
+            <div class="info-box">
+              <strong>Key Terms:</strong><br/>
+              • <strong>Type I Error (α):</strong> Rejecting true null hypothesis<br/>
+              • <strong>Type II Error (β):</strong> Failing to reject false null hypothesis<br/>
+              • <strong>Power:</strong> 1 - β
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 5. REGRESSION -->
+      <!-- 5. LINEAR & LOGISTIC REGRESSION -->
       <section id="regression" class="section" aria-labelledby="regress-title">
         <div class="section-header" onclick="toggleSection(this)">
           <div class="section-number">5</div>
-          <h2 id="regress-title" class="section-title">Regression</h2>
+          <h2 id="regress-title" class="section-title">Linear & Logistic Regression</h2>
           <div class="section-toggle">▼</div>
         </div>
         <div class="section-content">
           <div class="subsection">
             <div class="subsection-title">📉 Linear Regression</div>
             <div class="formula-card">
-              <div class="formula-name">Model</div>
+              <div class="formula-name">Simple Model</div>
               <div class="formula">$$y=\beta_0+\beta_1 x+\varepsilon$$</div>
             </div>
             <div class="formula-card">
@@ -375,13 +398,21 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <div class="formula">$$\beta=(X^TX)^{-1}X^T y$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">Mean Squared Error</div>
-              <div class="formula">$$MSE=\frac{1}{n}\sum_{i=1}^n (y_i-\hat{y}_i)^2$$</div>
+              <div class="formula-name">Predicted Values</div>
+              <div class="formula">$$\hat{y} = X\beta$$</div>
             </div>
-            <div class="formula-card">
-              <div class="formula-name">R² Score</div>
-              <div class="formula">$$R^2=1-\frac{\sum(y_i-\hat{y}_i)^2}{\sum(y_i-\bar{y})^2}$$</div>
-            </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">📊 Loss Functions</div>
+            <table class="formula-table">
+              <tr><th>Metric</th><th>Formula</th></tr>
+              <tr><td>Mean Squared Error</td><td>$$MSE=\frac{1}{n}\sum_{i=1}^n (y_i-\hat{y}_i)^2$$</td></tr>
+              <tr><td>Root MSE</td><td>$$RMSE=\sqrt{MSE}$$</td></tr>
+              <tr><td>Mean Absolute Error</td><td>$$MAE=\frac{1}{n}\sum_{i=1}^n |y_i-\hat{y}_i|$$</td></tr>
+              <tr><td>R² Score</td><td>$$R^2=1-\frac{\sum(y_i-\hat{y}_i)^2}{\sum(y_i-\bar{y})^2}$$</td></tr>
+              <tr><td>Adjusted R²</td><td>$$R^2_{adj}=1-\frac{(1-R^2)(n-1)}{n-p-1}$$</td></tr>
+            </table>
           </div>
 
           <div class="subsection">
@@ -391,13 +422,25 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <div class="formula">$$\sigma(z)=\frac{1}{1+e^{-z}}$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">Log Loss</div>
+              <div class="formula-name">Logit</div>
+              <div class="formula">$$z = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Probability</div>
+              <div class="formula">$$P(y=1|x) = \sigma(w^T x + b)$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Odds & Log-Odds</div>
+              <div class="formula">$$\text{Odds} = \frac{P(y=1)}{P(y=0)} = e^z \quad ; \quad \log(\text{Odds}) = z$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Log Loss (Binary Cross-Entropy)</div>
               <div class="formula">$$L=-\frac{1}{n}\sum_{i=1}^n[y_i\log\hat{y}_i+(1-y_i)\log(1-\hat{y}_i)]$$</div>
             </div>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">🛡️ Regularization Techniques</div>
+            <div class="subsection-title">🛡️ Regularization</div>
             <table class="formula-table">
               <tr><th>Type</th><th>Cost Function</th></tr>
               <tr><td>Ridge (L2)</td><td>$$J(\beta)=\sum(y_i-\hat{y}_i)^2+\lambda\sum\beta_j^2$$</td></tr>
@@ -423,20 +466,25 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <tr><td>Sigmoid</td><td>$$\sigma(x)=\frac{1}{1+e^{-x}}$$</td></tr>
               <tr><td>Tanh</td><td>$$\tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$$</td></tr>
               <tr><td>ReLU</td><td>$$\text{ReLU}(x)=\max(0,x)$$</td></tr>
+              <tr><td>Leaky ReLU</td><td>$$f(x)=\begin{cases}x&x>0\\\alpha x&\text{otherwise}\end{cases}$$</td></tr>
               <tr><td>Softmax</td><td>$$\text{softmax}(x_i)=\frac{e^{x_i}}{\sum_j e^{x_j}}$$</td></tr>
             </table>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">🔄 Forward & Backpropagation</div>
+            <div class="subsection-title">🔄 Forward Propagation</div>
             <div class="formula-card">
-              <div class="formula-name">Linear Transformation</div>
+              <div class="formula-name">Linear Combination</div>
               <div class="formula">$$z^{(l)}=W^{(l)}a^{(l-1)}+b^{(l)}$$</div>
             </div>
             <div class="formula-card">
               <div class="formula-name">Activation</div>
               <div class="formula">$$a^{(l)}=g(z^{(l)})$$</div>
             </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">⬅️ Backpropagation</div>
             <div class="formula-card">
               <div class="formula-name">Output Layer Error</div>
               <div class="formula">$$\delta^{(L)}=(a^{(L)}-y)\odot g'(z^{(L)})$$</div>
@@ -449,15 +497,19 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <div class="formula-name">Weight Gradient</div>
               <div class="formula">$$\frac{\partial L}{\partial W^{(l)}}=\delta^{(l)}(a^{(l-1)})^T$$</div>
             </div>
+            <div class="formula-card">
+              <div class="formula-name">Bias Gradient</div>
+              <div class="formula">$$\frac{\partial L}{\partial b^{(l)}}=\delta^{(l)}$$</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 7. OPTIMIZATION -->
+      <!-- 7. OPTIMIZATION ALGORITHMS -->
       <section id="optimization" class="section" aria-labelledby="opt-title">
         <div class="section-header" onclick="toggleSection(this)">
           <div class="section-number">7</div>
-          <h2 id="opt-title" class="section-title">Optimization</h2>
+          <h2 id="opt-title" class="section-title">Optimization Algorithms</h2>
           <div class="section-toggle">▼</div>
         </div>
         <div class="section-content">
@@ -514,13 +566,26 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <tr><th>Metric</th><th>Formula</th></tr>
               <tr><td>Accuracy</td><td>$$\text{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}$$</td></tr>
               <tr><td>Precision</td><td>$$\text{Precision}=\frac{TP}{TP+FP}$$</td></tr>
-              <tr><td>Recall/Sensitivity</td><td>$$\text{Recall}=\frac{TP}{TP+FN}$$</td></tr>
-              <tr><td>F1-score</td><td>$$F_1=\frac{2\cdot \text{Precision}\cdot \text{Recall}}{\text{Precision}+\text{Recall}}$$</td></tr>
+              <tr><td>Recall (Sensitivity)</td><td>$$\text{Recall}=\frac{TP}{TP+FN}$$</td></tr>
+              <tr><td>Specificity</td><td>$$\text{Specificity}=\frac{TN}{TN+FP}$$</td></tr>
+              <tr><td>F1-Score</td><td>$$F_1=\frac{2\cdot \text{Precision}\cdot \text{Recall}}{\text{Precision}+\text{Recall}}$$</td></tr>
+              <tr><td>F-beta Score</td><td>$$F_\beta=\frac{(1+\beta^2)\cdot \text{Precision}\cdot \text{Recall}}{\beta^2\cdot\text{Precision}+\text{Recall}}$$</td></tr>
             </table>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">📉 ROC & AUC</div>
+            <div class="subsection-title">📉 Confusion Matrix</div>
+            <div class="info-box">
+              <strong>Legend:</strong><br/>
+              • <strong>TP</strong> = True Positive<br/>
+              • <strong>TN</strong> = True Negative<br/>
+              • <strong>FP</strong> = False Positive (Type I Error)<br/>
+              • <strong>FN</strong> = False Negative (Type II Error)
+            </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">📈 ROC & AUC</div>
             <div class="formula-card">
               <div class="formula-name">True Positive Rate (TPR)</div>
               <div class="formula">$$TPR=\frac{TP}{TP+FN}$$</div>
@@ -528,6 +593,10 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
             <div class="formula-card">
               <div class="formula-name">False Positive Rate (FPR)</div>
               <div class="formula">$$FPR=\frac{FP}{FP+TN}$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">AUC (Area Under Curve)</div>
+              <div class="formula">$$AUC = \int_0^1 TPR(FPR^{-1}(x))dx$$</div>
             </div>
             <div class="info-box"><strong>Note:</strong> ROC curves plot TPR vs FPR. AUC measures the area under the ROC curve.</div>
           </div>
@@ -584,31 +653,59 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
         </div>
         <div class="section-content">
           <div class="subsection">
-            <div class="subsection-title">🧠 Convolutional Neural Networks (CNN)</div>
+            <div class="subsection-title">🔄 Batch Normalization</div>
             <div class="formula-card">
-              <div class="formula-name">Convolution Output Size</div>
-              <div class="formula">$$O=\left\lfloor\frac{W-K+2P}{S}\right\rfloor+1$$</div>
+              <div class="formula-name">Normalize</div>
+              <div class="formula">$$\hat x=\frac{x-\mu_B}{\sqrt{\sigma_B^2+\epsilon}}$$</div>
             </div>
-            <div class="info-box"><strong>Parameters:</strong> W = input width, K = kernel size, P = padding, S = stride</div>
+            <div class="formula-card">
+              <div class="formula-name">Scale & Shift</div>
+              <div class="formula">$$y=\gamma\hat x+\beta$$</div>
+            </div>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">🔄 RNN & LSTM</div>
+            <div class="subsection-title">🧠 Convolutional Neural Networks (CNN)</div>
             <div class="formula-card">
-              <div class="formula-name">LSTM Forget Gate</div>
+              <div class="formula-name">Convolution Operation</div>
+              <div class="formula">$$(f * g)(t) = \sum_x f(x)g(t-x)$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Output Size</div>
+              <div class="formula">$$O=\left\lfloor\frac{W-K+2P}{S}\right\rfloor+1$$</div>
+            </div>
+            <div class="info-box"><strong>Parameters:</strong> W = input size, K = kernel size, P = padding, S = stride</div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">🔁 Recurrent Neural Networks (RNN)</div>
+            <div class="formula-card">
+              <div class="formula-name">Hidden State</div>
+              <div class="formula">$$h_t = \tanh(W_{xh}x_t + W_{hh}h_{t-1} + b_h)$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Output</div>
+              <div class="formula">$$y_t = W_{hy}h_t + b_y$$</div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">🧬 Long Short-Term Memory (LSTM)</div>
+            <div class="formula-card">
+              <div class="formula-name">Forget Gate</div>
               <div class="formula">$$f_t=\sigma(W_f[h_{t-1},x_t]+b_f)$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">LSTM Input Gate</div>
+              <div class="formula-name">Input Gate</div>
               <div class="formula">$$i_t=\sigma(W_i[h_{t-1},x_t]+b_i)$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">LSTM Cell State</div>
-              <div class="formula">$$C_t=f_t\odot C_{t-1}+i_t\odot\tilde{C}_t$$</div>
+              <div class="formula-name">Output Gate</div>
+              <div class="formula">$$o_t=\sigma(W_o[h_{t-1},x_t]+b_o)$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">LSTM Output Gate</div>
-              <div class="formula">$$o_t=\sigma(W_o[h_{t-1},x_t]+b_o)$$</div>
+              <div class="formula-name">Cell State</div>
+              <div class="formula">$$C_t=f_t\odot C_{t-1}+i_t\odot\tilde{C}_t$$</div>
             </div>
             <div class="formula-card">
               <div class="formula-name">Hidden State</div>
@@ -617,46 +714,89 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">💧 Batch Normalization & Dropout</div>
-            <div class="formula-card">
-              <div class="formula-name">Batch Normalization (Normalize)</div>
-              <div class="formula">$$\hat x=\frac{x-\mu_B}{\sqrt{\sigma_B^2+\epsilon}}$$</div>
+            <div class="subsection-title">💧 Dropout</div>
+            <div class="info-box">
+              <strong>Training:</strong> Output = mask ⊙ activation / (1 - p)<br/>
+              <strong>Testing:</strong> Use all neurons (no dropout)
             </div>
-            <div class="formula-card">
-              <div class="formula-name">Scale & Shift</div>
-              <div class="formula">$$y=\gamma\hat x+\beta$$</div>
-            </div>
-            <div class="info-box"><strong>Dropout:</strong> During training, randomly set activations to 0 with probability \(p\). During testing, use all neurons.</div>
           </div>
         </div>
       </section>
 
-      <!-- BONUS TOPICS -->
-      <section id="bonus" class="section" aria-labelledby="bonus-title">
+      <!-- 11. DIMENSIONALITY REDUCTION -->
+      <section id="dimensionality-reduction" class="section" aria-labelledby="dimred-title">
         <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-number">+</div>
-          <h2 id="bonus-title" class="section-title">Bonus Topics</h2>
+          <div class="section-number">11</div>
+          <h2 id="dimred-title" class="section-title">Dimensionality Reduction</h2>
           <div class="section-toggle">▼</div>
         </div>
         <div class="section-content">
           <div class="subsection">
-            <div class="subsection-title">📊 PCA (Principal Component Analysis)</div>
+            <div class="subsection-title">📊 Principal Component Analysis (PCA)</div>
             <div class="formula-card">
               <div class="formula-name">Covariance Matrix</div>
               <div class="formula">$$\Sigma=\frac{1}{n}X^T X$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Principal Components</div>
+              <div class="formula">$$\text{Eigenvectors of } \Sigma$$</div>
             </div>
             <div class="formula-card">
               <div class="formula-name">Explained Variance Ratio</div>
               <div class="formula">$$\text{EVR}=\frac{\lambda_i}{\sum_j \lambda_j}$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">Projection onto Principal Components</div>
+              <div class="formula-name">Projection</div>
               <div class="formula">$$Z=XW \quad \text{(where W = eigenvectors)}$$</div>
             </div>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">🎯 Support Vector Machines (SVM)</div>
+            <div class="subsection-title">🔢 Singular Value Decomposition (SVD)</div>
+            <div class="formula-card">
+              <div class="formula-name">Decomposition</div>
+              <div class="formula">$$X = U\Sigma V^T$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Reduced Form</div>
+              <div class="formula">$$X \approx U_k\Sigma_k V_k^T$$</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. INFORMATION THEORY -->
+      <section id="information-theory" class="section" aria-labelledby="info-title">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-number">12</div>
+          <h2 id="info-title" class="section-title">Information Theory</h2>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="subsection">
+            <div class="subsection-title">📡 Entropy and Information</div>
+            <table class="formula-table">
+              <tr><th>Measure</th><th>Formula</th></tr>
+              <tr><td>Entropy</td><td>$$H(X)=-\sum P(x_i)\log_2 P(x_i)$$</td></tr>
+              <tr><td>Cross-Entropy</td><td>$$H(p,q)=-\sum p(x)\log q(x)$$</td></tr>
+              <tr><td>KL Divergence</td><td>$$D_{KL}(P\|Q)=\sum P(x)\log\frac{P(x)}{Q(x)}$$</td></tr>
+              <tr><td>Mutual Information</td><td>$$I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)$$</td></tr>
+              <tr><td>Conditional Entropy</td><td>$$H(Y|X)=-\sum_x\sum_y P(x,y)\log P(y|x)$$</td></tr>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. SUPPORT VECTOR MACHINES -->
+      <section id="svm" class="section" aria-labelledby="svm-title">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-number">13</div>
+          <h2 id="svm-title" class="section-title">Support Vector Machines</h2>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="subsection">
+            <div class="subsection-title">🎯 Linear SVM</div>
             <div class="formula-card">
               <div class="formula-name">Decision Function</div>
               <div class="formula">$$f(x)=w^Tx+b$$</div>
@@ -666,38 +806,112 @@ v:=\beta_2 v+(1-\beta_2)(\nabla J)^2\\
               <div class="formula">$$\text{margin}=\frac{2}{\|w\|}$$</div>
             </div>
             <div class="formula-card">
-              <div class="formula-name">RBF (Radial Basis Function) Kernel</div>
-              <div class="formula">$$K(x,x')=\exp(-\gamma\|x-x'\|^2)$$</div>
+              <div class="formula-name">Optimization</div>
+              <div class="formula">$$\min \frac{1}{2}\|w\|^2 \quad \text{s.t. } y_i(w^Tx_i+b)\geq 1$$</div>
             </div>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">⚖️ Bias-Variance Tradeoff</div>
+            <div class="subsection-title">🛡️ Soft Margin SVM</div>
             <div class="formula-card">
-              <div class="formula-name">Error Decomposition</div>
-              <div class="formula">$$E[(y-\hat{y})^2]=\text{Bias}^2+\text{Variance}+\text{Irreducible Error}$$</div>
+              <div class="formula-name">Objective</div>
+              <div class="formula">$$\min \frac{1}{2}\|w\|^2 + C\sum_i\xi_i$$</div>
             </div>
-            <div class="info-box"><strong>💡 Key Insight:</strong> High bias = underfitting, High variance = overfitting. Find the sweet spot!</div>
+            <div class="formula-card">
+              <div class="formula-name">Constraint</div>
+              <div class="formula">$$y_i(w^Tx_i+b)\geq 1-\xi_i, \quad \xi_i\geq 0$$</div>
+            </div>
           </div>
 
           <div class="subsection">
-            <div class="subsection-title">📡 Information Theory</div>
+            <div class="subsection-title">🔧 Kernel Functions</div>
             <table class="formula-table">
-              <tr><th>Measure</th><th>Formula</th></tr>
-              <tr><td>Entropy</td><td>$$H(X)=-\sum P(x_i)\log_2 P(x_i)$$</td></tr>
-              <tr><td>Cross-Entropy</td><td>$$H(p,q)=-\sum p(x)\log q(x)$$</td></tr>
-              <tr><td>KL Divergence</td><td>$$D_{KL}(P\|Q)=\sum P(x)\log\frac{P(x)}{Q(x)}$$</td></tr>
+              <tr><th>Kernel</th><th>Formula</th></tr>
+              <tr><td>Linear</td><td>$$K(x,x')=x^Tx'$$</td></tr>
+              <tr><td>Polynomial</td><td>$$K(x,x')=(x^Tx'+c)^d$$</td></tr>
+              <tr><td>RBF (Gaussian)</td><td>$$K(x,x')=\exp(-\gamma\|x-x'\|^2)$$</td></tr>
+              <tr><td>Sigmoid</td><td>$$K(x,x')=\tanh(\alpha x^Tx'+c)$$</td></tr>
             </table>
           </div>
+        </div>
+      </section>
 
+      <!-- 14. DECISION TREES & ENSEMBLES -->
+      <section id="decision-trees" class="section" aria-labelledby="dt-title">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-number">14</div>
+          <h2 id="dt-title" class="section-title">Decision Trees & Ensembles</h2>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-content">
           <div class="subsection">
-            <div class="subsection-title">🌳 Decision Trees</div>
+            <div class="subsection-title">🌳 Impurity Measures</div>
             <table class="formula-table">
               <tr><th>Measure</th><th>Formula</th></tr>
               <tr><td>Gini Impurity</td><td>$$\text{Gini}=1-\sum_i p_i^2$$</td></tr>
               <tr><td>Entropy</td><td>$$H=-\sum_i p_i\log_2(p_i)$$</td></tr>
-              <tr><td>Information Gain</td><td>$$IG(D,A)=H(D)-\sum_v\frac{|D_v|}{|D|}H(D_v)$$</td></tr>
+              <tr><td>Classification Error</td><td>$$E=1-\max(p_i)$$</td></tr>
             </table>
+            <div class="formula-card">
+              <div class="formula-name">Information Gain</div>
+              <div class="formula">$$IG(D,A)=H(D)-\sum_v\frac{|D_v|}{|D|}H(D_v)$$</div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">🌲 Ensemble Methods</div>
+            <div class="formula-card">
+              <div class="formula-name">Bagging (Random Forest)</div>
+              <div class="formula">$$\hat{y}=\frac{1}{B}\sum_{b=1}^B f_b(x)$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">AdaBoost - Sample Weight</div>
+              <div class="formula">$$w_i^{(t+1)}=w_i^{(t)}\cdot\exp[\alpha_t\cdot\mathbb{1}(y_i\neq h_t(x_i))]$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">AdaBoost - Model Weight</div>
+              <div class="formula">$$\alpha_t=\frac{1}{2}\ln\frac{1-\varepsilon_t}{\varepsilon_t}$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Gradient Boosting - Update</div>
+              <div class="formula">$$F_m(x)=F_{m-1}(x)+\gamma_m h_m(x)$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Gradient Boosting - Residual</div>
+              <div class="formula">$$r_{im}=-\left[\frac{\partial L(y_i,F(x_i))}{\partial F(x_i)}\right]_{F=F_{m-1}}$$</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15. BIAS-VARIANCE TRADEOFF -->
+      <section id="bias-variance" class="section" aria-labelledby="bv-title">
+        <div class="section-header" onclick="toggleSection(this)">
+          <div class="section-number">15</div>
+          <h2 id="bv-title" class="section-title">Bias-Variance Tradeoff</h2>
+          <div class="section-toggle">▼</div>
+        </div>
+        <div class="section-content">
+          <div class="subsection">
+            <div class="subsection-title">⚖️ Error Decomposition</div>
+            <div class="formula-card">
+              <div class="formula-name">Total Error</div>
+              <div class="formula">$$E[(y-\hat{y})^2]=\text{Bias}^2+\text{Variance}+\text{Irreducible Error}$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Bias</div>
+              <div class="formula">$$\text{Bias}=E[\hat{y}]-y$$</div>
+            </div>
+            <div class="formula-card">
+              <div class="formula-name">Variance</div>
+              <div class="formula">$$\text{Variance}=E[(\hat{y}-E[\hat{y}])^2]$$</div>
+            </div>
+            <div class="info-box">
+              <strong>💡 Key Insights:</strong><br/>
+              • <strong>High Bias</strong> → Underfitting (model too simple)<br/>
+              • <strong>High Variance</strong> → Overfitting (model too complex)<br/>
+              • <strong>Goal:</strong> Find the optimal balance between bias and variance
+            </div>
           </div>
         </div>
       </section>
